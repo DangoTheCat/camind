@@ -135,46 +135,16 @@ export default function BasicPhilosophyPage({
   // Hover states for Section 2 (Cơ sở lý luận) & Section 3 (Timeline)
   const [hoveredTheoryCard, setHoveredTheoryCard] = useState(null)
   const [hoveredMilestone, setHoveredMilestone] = useState(null)
-
-  // Active section tracking for floating indicator
-  const [activeSectionId, setActiveSectionId] = useState('thinkers')
-
-  // Ensure body scroll is enabled for Page 2
+  // Ensure body scroll and background color are enabled for Page 2
   useEffect(() => {
     document.body.style.overflow = 'auto'
     document.documentElement.style.overflow = 'auto'
+    document.body.style.backgroundColor = '#ffffff'
+    document.documentElement.style.backgroundColor = '#ffffff'
     return () => {
       document.body.style.overflow = 'auto'
       document.documentElement.style.overflow = 'auto'
     }
-  }, [])
-
-  // Section Observer to track which section is currently in view
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 250
-      const sections = [
-        { id: 'thinkers', offset: 0 },
-        { id: 'co-so', el: document.getElementById('section-co-so') },
-        { id: 'timeline', el: document.getElementById('section-timeline') },
-        { id: 'lien-he', el: document.getElementById('section-lien-he') },
-        { id: 'boi-canh', el: document.getElementById('section-boi-canh') },
-        { id: 'footer', el: document.getElementById('section-footer') }
-      ]
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const sec = sections[i]
-        if (sec.el && sec.el.offsetTop <= scrollPos) {
-          setActiveSectionId(sec.id)
-          break
-        } else if (i === 0) {
-          setActiveSectionId('thinkers')
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollToSection = (sectionId) => {
@@ -213,16 +183,16 @@ export default function BasicPhilosophyPage({
       }}
     >
       {/* ===================================================================
-          1. HEADER (Sticky Top 80px, Torn-paper background)
+          1. HEADER (Top 84px, Authentic Torn-paper background)
          =================================================================== */}
       <div
         style={{
-          position: 'fixed',
+          position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 100,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
+          height: 84,
+          zIndex: 100
         }}
       >
         <FigmaOpenHeader
@@ -235,62 +205,11 @@ export default function BasicPhilosophyPage({
         />
       </div>
 
-      {/* Floating Side Quick Navigation Dots */}
-      <div
-        style={{
-          position: 'fixed',
-          right: 24,
-          top: '50%',
-          transform: 'translateY(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12,
-          zIndex: 90,
-          background: 'rgba(250, 249, 245, 0.85)',
-          backdropFilter: 'blur(8px)',
-          padding: '12px 8px',
-          borderRadius: 24,
-          border: '1px solid rgba(173, 144, 0, 0.2)',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.08)'
-        }}
-      >
-        {[
-          { id: 'thinkers', label: '1. Triết gia' },
-          { id: 'co-so', label: '2. Cơ sở lý luận' },
-          { id: 'timeline', label: '3. Dòng thời gian' },
-          { id: 'lien-he', label: '4. Liên hệ thực tiễn' },
-          { id: 'boi-canh', label: '5. Bối cảnh triết học' },
-          { id: 'footer', label: '6. Nguồn tài liệu' }
-        ].map((sec) => (
-          <button
-            key={sec.id}
-            onClick={() => {
-              if (sec.id === 'thinkers') scrollToTop()
-              else scrollToSection(`section-${sec.id}`)
-            }}
-            title={sec.label}
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: '50%',
-              border: 'none',
-              cursor: 'pointer',
-              padding: 0,
-              background:
-                activeSectionId === sec.id
-                  ? '#c28c33'
-                  : 'rgba(194, 140, 51, 0.25)',
-              transform: activeSectionId === sec.id ? 'scale(1.35)' : 'scale(1)',
-              transition: 'all 0.25s ease'
-            }}
-          />
-        ))}
-      </div>
 
       {/* Main Page Body (Centered 1440px Column) */}
       <div
         style={{
-          paddingTop: 80, // Offset for sticky 80px header
+          paddingTop: 84,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -302,28 +221,37 @@ export default function BasicPhilosophyPage({
             Hero Thinkers Component (1440x900)
             Left: 760px, Right: 680px
            =================================================================== */}
-        <section
-          id="section-thinkers"
+        {/* Full-width Section 1 background wrapper to extend pure white across entire screen */}
+        <div
           style={{
-            position: 'relative',
             width: '100%',
-            maxWidth: 1440,
-            height: 900,
-            backgroundColor: '#FAF9F5',
-            overflow: 'hidden',
-            boxSizing: 'border-box'
+            backgroundColor: '#ffffff',
+            display: 'flex',
+            justifyContent: 'center'
           }}
         >
-          {/* Subtle background radial glow */}
-          <div
+          <section
+            id="section-thinkers"
             style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'radial-gradient(circle at 85% 50%, rgba(254, 242, 215, 0.4) 0%, rgba(250, 249, 245, 0) 70%)',
-              pointerEvents: 'none',
-              zIndex: 1
+              position: 'relative',
+              width: '100%',
+              maxWidth: 1440,
+              height: 900,
+              backgroundColor: '#ffffff',
+              overflow: 'hidden',
+              boxSizing: 'border-box'
             }}
-          />
+          >
+            {/* Clean white backdrop */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundColor: '#ffffff',
+                pointerEvents: 'none',
+                zIndex: 1
+              }}
+            />
 
           {/* -------------------------------------------------------------
               LEFT COLUMN: CONTENT-LEFT (Figma Node 149:244 / 149:300 / 149:354)
@@ -880,7 +808,8 @@ export default function BasicPhilosophyPage({
               width: 680,
               height: 900,
               overflow: 'hidden',
-              zIndex: 5
+              zIndex: 5,
+              backgroundColor: '#ffffff'
             }}
           >
             {/* Smooth simultaneous crossfade watercolor portraits (Zero flashing, continuous blend) */}
@@ -913,7 +842,7 @@ export default function BasicPhilosophyPage({
               )
             })}
 
-            {/* Soft left gradient fade */}
+            {/* Soft left gradient fade into pure white */}
             <div
               style={{
                 position: 'absolute',
@@ -921,7 +850,7 @@ export default function BasicPhilosophyPage({
                 bottom: 0,
                 left: 0,
                 width: 140,
-                background: 'linear-gradient(to right, #FAF9F5 0%, rgba(250, 249, 245, 0) 100%)',
+                background: 'linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%)',
                 pointerEvents: 'none'
               }}
             />
@@ -1051,6 +980,7 @@ export default function BasicPhilosophyPage({
             </svg>
           </motion.div>
         </section>
+        </div>
 
         {/* ===================================================================
             SECTION 2: CƠ SỞ LÝ LUẬN (Figma Node 252:1038)
@@ -1280,7 +1210,7 @@ export default function BasicPhilosophyPage({
             maxWidth: 1440,
             margin: '0 auto',
             boxSizing: 'border-box',
-            backgroundColor: '#fdfcf7',
+            backgroundColor: '#FAF9F5',
             padding: '64px 80px 72px 80px',
             overflow: 'hidden'
           }}
@@ -1348,80 +1278,90 @@ export default function BasicPhilosophyPage({
                 }}
               >
                 <defs>
-                  <linearGradient id="timelineGoldGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#ffb200" />
-                    <stop offset="100%" stopColor="#b3b600" />
+                  {/* Vertical Linear Gradient for Connector Pins (userSpaceOnUse ensures rendering on vertical lines) */}
+                  <linearGradient id="timelineConnectorGrad" x1="0" y1="280" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#FFB300" />
+                    <stop offset="100%" stopColor="#B3B600" />
+                  </linearGradient>
+
+                  {/* Gradient for Axis Node Dots */}
+                  <linearGradient id="timelineDotGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#FFB300" />
+                    <stop offset="100%" stopColor="#B3B600" />
                   </linearGradient>
                 </defs>
 
-                {/* Central Baseline (Node 171:249, x: 140 to 1260, y: 310, stroke: #d39f8a, dash: 6 8) */}
+                {/* Central Baseline across all 5 milestones (Node 171:249, x: 140 to 1260, y: 310) */}
                 <line
                   x1="140"
                   y1="310"
                   x2="1260"
                   y2="310"
-                  stroke="#d39f8a"
+                  stroke="#D39F8A"
                   strokeWidth="2"
                   strokeDasharray="6 8"
-                  strokeOpacity="0.6"
+                  strokeOpacity="0.65"
                 />
 
-                {/* Curved Flow Arcs (Node 171:246, 171:247, 171:248, dash: 4 6, stroke: #d39f8a) */}
-                {/* Arc 1: Arching over M0 from 140 to 420 */}
+                {/* Curved Dashed Flow Arcs - Meeting EXACTLY at the 5 milestone dots (140, 420, 700, 980, 1260) */}
+                {/* Arc 1: Dot 0 (140, 310) -> Dot 1 (420, 310), curving DOWN */}
                 <path
-                  d="M 140 310 C 210 160, 350 160, 420 310"
-                  stroke="#d39f8a"
-                  strokeWidth="1.5"
+                  d="M 140 310 A 140 140 0 0 1 420 310"
+                  stroke="#D39F8A"
+                  strokeWidth="2"
                   strokeDasharray="4 6"
-                  strokeOpacity="0.5"
+                  strokeOpacity="0.75"
                   fill="none"
                 />
-                {/* Arc 2: Dipping under M1 from 420 to 700 */}
+                {/* Arc 2: Dot 1 (420, 310) -> Dot 2 (700, 310), curving UP */}
                 <path
-                  d="M 420 310 C 490 460, 630 460, 700 310"
-                  stroke="#d39f8a"
-                  strokeWidth="1.5"
+                  d="M 420 310 A 140 140 0 0 0 700 310"
+                  stroke="#D39F8A"
+                  strokeWidth="2"
                   strokeDasharray="4 6"
-                  strokeOpacity="0.5"
+                  strokeOpacity="0.75"
                   fill="none"
                 />
-                {/* Arc 3: Arching over M2 from 700 to 980 */}
+                {/* Arc 3: Dot 2 (700, 310) -> Dot 3 (980, 310), curving DOWN */}
                 <path
-                  d="M 700 310 C 770 160, 910 160, 980 310"
-                  stroke="#d39f8a"
-                  strokeWidth="1.5"
+                  d="M 700 310 A 140 140 0 0 1 980 310"
+                  stroke="#D39F8A"
+                  strokeWidth="2"
                   strokeDasharray="4 6"
-                  strokeOpacity="0.5"
+                  strokeOpacity="0.75"
                   fill="none"
                 />
-                {/* Arc 4: Dipping under M3 from 980 to 1260 */}
+                {/* Arc 4: Dot 3 (980, 310) -> Dot 4 (1260, 310), curving UP */}
                 <path
-                  d="M 980 310 C 1050 460, 1190 460, 1260 310"
-                  stroke="#d39f8a"
-                  strokeWidth="1.5"
+                  d="M 980 310 A 140 140 0 0 0 1260 310"
+                  stroke="#D39F8A"
+                  strokeWidth="2"
                   strokeDasharray="4 6"
-                  strokeOpacity="0.5"
+                  strokeOpacity="0.75"
                   fill="none"
                 />
 
-                {/* Vertical Connector Pins (Node 171:251, stroke: timelineGoldGrad, opacity: 0.4) */}
-                {/* M0 Pin (Top: from card bottom y:244 to baseline y:305) */}
-                <line x1="140" y1="244" x2="140" y2="305" stroke="url(#timelineGoldGrad)" strokeWidth="1.5" strokeOpacity="0.45" />
-                {/* M1 Pin (Bottom: from baseline y:315 to card top y:451) */}
-                <line x1="420" y1="315" x2="420" y2="451" stroke="url(#timelineGoldGrad)" strokeWidth="1.5" strokeOpacity="0.45" />
-                {/* M2 Pin (Top: from card bottom y:244 to baseline y:305) */}
-                <line x1="700" y1="244" x2="700" y2="305" stroke="url(#timelineGoldGrad)" strokeWidth="1.5" strokeOpacity="0.45" />
-                {/* M3 Pin (Bottom: from baseline y:315 to card top y:451) */}
-                <line x1="980" y1="315" x2="980" y2="451" stroke="url(#timelineGoldGrad)" strokeWidth="1.5" strokeOpacity="0.45" />
-                {/* M4 Pin (Top: from card bottom y:244 to baseline y:305) */}
-                <line x1="1260" y1="244" x2="1260" y2="305" stroke="url(#timelineGoldGrad)" strokeWidth="1.5" strokeOpacity="0.45" />
+                {/* 5 Vertical Connector Pins pointing DOWNWARDS from baseline (Nodes 171:251, 171:261, 171:271, 171:281, 171:291) */}
+                {/* M0 Pin (x=140, y=300 down to y=415) */}
+                <line x1="140" y1="300" x2="140" y2="415" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
+                {/* M1 Pin (x=420, y=295 down to y=430 pointing directly towards bottom title) */}
+                <line x1="420" y1="295" x2="420" y2="430" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
+                {/* M2 Pin (x=700, y=300 down to y=415) */}
+                <line x1="700" y1="300" x2="700" y2="415" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
+                {/* M3 Pin (x=980, y=295 down to y=430 pointing directly towards bottom title) */}
+                <line x1="980" y1="295" x2="980" y2="430" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
+                {/* M4 Pin (x=1260, y=300 down to y=415) */}
+                <line x1="1260" y1="300" x2="1260" y2="415" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
 
-                {/* 5 Axis Nodes (Node 171:252, diameter: 10, fill: timelineGoldGrad) */}
+                {/* 5 Axis Nodes (Milestone dots where the alternating arcs intersect and connect) */}
                 {[140, 420, 700, 980, 1260].map((cx) => (
                   <g key={cx}>
-                    <circle cx={cx} cy="310" r="10" fill="#ffb200" fillOpacity="0.18" />
-                    <circle cx={cx} cy="310" r="5" fill="url(#timelineGoldGrad)" />
-                    <circle cx={cx} cy="310" r="2" fill="#ffffff" fillOpacity="0.9" />
+                    {/* Glowing outer aura */}
+                    <circle cx={cx} cy="310" r="10" fill="#FFB300" fillOpacity="0.22" />
+                    {/* Gold core node */}
+                    <circle cx={cx} cy="310" r="5.5" fill="url(#timelineDotGrad)" stroke="#FFFFFF" strokeWidth="1.2" />
+                    {/* Crisp white center point */}
+                    <circle cx={cx} cy="310" r="2" fill="#FFFFFF" />
                   </g>
                 ))}
               </svg>

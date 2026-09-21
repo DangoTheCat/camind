@@ -215,30 +215,6 @@ html, body {
   transform: scale(0.96);
 }
 
-/* Floating Skip Button */
-.btn-floating-skip {
-  position: absolute;
-  bottom: 24px;
-  right: 28px;
-  background: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-family: inherit;
-  font-size: 13px;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-  z-index: 99;
-}
-
-.btn-floating-skip:hover {
-  background: #000000;
-  border-color: #e5a912;
-  color: #e5a912;
-}
-
 /* ====================================================
    WIREFRAME - 2 DESTINATION (Id: 94:491)
 ==================================================== */

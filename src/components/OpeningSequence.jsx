@@ -52,14 +52,6 @@ export default function OpeningSequence({
     }, 2500)
   }
 
-  const handleSkip = () => {
-    setPhase(3)
-  }
-
-  const handleReplay = () => {
-    setReplayKey(prev => prev + 1)
-    setPhase(1)
-  }
 
   const handleLetsGoClick = () => {
     setIsNavigating(true)
@@ -283,51 +275,6 @@ export default function OpeningSequence({
         </AnimatePresence>
       </div>
 
-      {/* Floating Controls: Skip during GIF, Replay during Phase 3 */}
-      <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 100, display: 'flex', gap: 12 }}>
-        {phase === 1 && (
-          <motion.button
-            onClick={handleSkip}
-            className="btn-floating-skip"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.8 }}
-            whileHover={{ opacity: 1, scale: 1.05 }}
-            title="Bỏ qua đợi hoạt họa"
-            style={{
-              padding: '8px 16px',
-              backgroundColor: 'rgba(0, 0, 0, 0.08)',
-              color: '#333333',
-              border: '1px solid rgba(0, 0, 0, 0.15)',
-              borderRadius: 20,
-              fontSize: 13,
-              cursor: 'pointer',
-              fontWeight: 500
-            }}
-          >
-            Bỏ qua &gt;&gt;
-          </motion.button>
-        )}
-        {phase === 3 && (
-          <motion.button
-            onClick={handleReplay}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
-            whileHover={{ opacity: 1, scale: 1.05 }}
-            title="Xem lại hoạt họa"
-            style={{
-              padding: '6px 14px',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              color: '#aaaaaa',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              borderRadius: 20,
-              fontSize: 12,
-              cursor: 'pointer'
-            }}
-          >
-            ↻ Xem lại animation
-          </motion.button>
-        )}
-      </div>
 
       {/* Feedback Survey Modal from Figma Component 35:454 */}
       <FeedbackModal
