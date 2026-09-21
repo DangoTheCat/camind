@@ -3,9 +3,11 @@ import OpeningSequence from './components/OpeningSequence'
 import Wireframe2Destination from './components/Wireframe2Destination'
 import BasicPhilosophyPage from './components/BasicPhilosophyPage'
 import EnvironmentConditionPage from './components/EnvironmentConditionPage'
+import InfluencePage from './components/InfluencePage'
+import ConclusionPage from './components/ConclusionPage'
 
 export default function App() {
-  // Screen state: 'open' | 'wireframe2' | 'theory' | 'environment'
+  // Screen state: 'open' | 'wireframe2' | 'theory' | 'environment' | 'influence' | 'conclusion'
   const [currentScreen, setCurrentScreen] = useState('open')
   // Active nav tab: default null -> all 4 tabs render WHITE
   const [activeTab, setActiveTab] = useState(null)
@@ -21,6 +23,10 @@ export default function App() {
       setCurrentScreen('theory')
     } else if (tabKey === 'history' || tabKey === 'environment') {
       setCurrentScreen('environment')
+    } else if (tabKey === 'influence') {
+      setCurrentScreen('influence')
+    } else if (tabKey === 'conclusion') {
+      setCurrentScreen('conclusion')
     }
   }
 
@@ -46,6 +52,22 @@ export default function App() {
             setCurrentScreen('wireframe2')
             setActiveTab('intro')
           }}
+        />
+      ) : currentScreen === 'conclusion' || activeTab === 'conclusion' ? (
+        <ConclusionPage
+          activeTab={activeTab || 'conclusion'}
+          isControllerActive={isControllerActive}
+          onNavClick={handleNavClick}
+          onControllerClick={handleControllerClick}
+          onLogoClick={handleLogoClick}
+        />
+      ) : currentScreen === 'influence' || activeTab === 'influence' ? (
+        <InfluencePage
+          activeTab={activeTab || 'influence'}
+          isControllerActive={isControllerActive}
+          onNavClick={handleNavClick}
+          onControllerClick={handleControllerClick}
+          onLogoClick={handleLogoClick}
         />
       ) : currentScreen === 'environment' || activeTab === 'history' || activeTab === 'environment' ? (
         <EnvironmentConditionPage

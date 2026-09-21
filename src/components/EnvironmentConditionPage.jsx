@@ -4,6 +4,7 @@ import { BookOpen } from 'lucide-react'
 import FigmaOpenHeader from './FigmaOpenHeader'
 import FeedbackModal from './FeedbackModal'
 import ReferencesModal from './ReferencesModal'
+import FigmaCtaButton from './FigmaCtaButton'
 
 /**
  * EnvironmentConditionPage (3. Điều kiện và môi trường)
@@ -136,115 +137,98 @@ export default function EnvironmentConditionPage({
       </div>
 
       {/* ===================================================================
-          2. MAIN COLUMN CONTAINER (1440px Stage Centered)
+          2. HERO SECTION (Node 212:260) - 100% Authentic Figma Wireframe - 4
+             Full Width Edge-to-Edge Fill without side margins
+         =================================================================== */}
+      <motion.section
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        style={{
+          position: 'relative',
+          width: '100%',
+          margin: 0,
+          padding: 0,
+          overflow: 'hidden',
+          userSelect: 'none',
+          boxShadow: '0 8px 32px rgba(139, 105, 20, 0.08)'
+        }}
+      >
+        {/* Authentic High-Resolution Figma Hero Image (2880x998 Retina) with students photography & warm gradient */}
+        <img
+          src="/assets/hero_wf4.png"
+          alt="Điều Kiện Vật Chất, Môi Trường Ảnh Hưởng Đến Sinh Viên Hiện Nay"
+          style={{
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+            pointerEvents: 'none'
+          }}
+        />
+
+        {/* Accessible hidden text for screen readers & SEO */}
+        <h1
+          style={{
+            position: 'absolute',
+            width: 1,
+            height: 1,
+            padding: 0,
+            margin: -1,
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            border: 0
+          }}
+        >
+          Điều Kiện Vật Chất, Môi Trường Ảnh Hưởng Đến Sinh Viên Hiện Nay
+        </h1>
+
+        {/* Interactive "roll to" hotspot button over authentic Figma design */}
+        <motion.button
+          onClick={scrollToContent}
+          whileHover={{
+            scale: 1.08,
+            backgroundColor: 'rgba(115, 89, 64, 0.08)',
+            boxShadow: '0 4px 16px rgba(115, 89, 64, 0.12)'
+          }}
+          whileTap={{ scale: 0.95 }}
+          style={{
+            position: 'absolute',
+            top: '89.1%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 110,
+            height: 60,
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            outline: 'none',
+            borderRadius: 16,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'background-color 0.2s ease, box-shadow 0.2s ease'
+          }}
+          aria-label="Cuộn xuống nội dung"
+        />
+      </motion.section>
+
+      {/* ===================================================================
+          3. MAIN COLUMN CONTAINER (1280px Stage Centered)
          =================================================================== */}
       <div
+        id="content-body"
         style={{
           width: '100%',
-          maxWidth: 1440,
+          maxWidth: 1280,
           margin: '0 auto',
-          padding: '0 40px',
+          padding: '56px 20px',
+          scrollMarginTop: 100,
           boxSizing: 'border-box',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center'
+          gap: 64
         }}
       >
-        {/* ===================================================================
-            HERO SECTION (Node 212:260) - 100% Authentic Figma Wireframe - 4
-           =================================================================== */}
-        <motion.section
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ y: -2 }}
-          style={{
-            position: 'relative',
-            width: '100%',
-            maxWidth: 1360,
-            marginTop: 20,
-            borderRadius: 32,
-            overflow: 'hidden',
-            boxShadow: '0 8px 32px rgba(139, 105, 20, 0.08)',
-            border: '1px solid rgba(231, 211, 184, 0.5)',
-            userSelect: 'none'
-          }}
-        >
-          {/* Authentic High-Resolution Figma Hero Image (2880x998 Retina) with students photography & warm gradient */}
-          <img
-            src="/assets/hero_wf4.png"
-            alt="Điều Kiện Vật Chất, Môi Trường Ảnh Hưởng Đến Sinh Viên Hiện Nay"
-            style={{
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              pointerEvents: 'none'
-            }}
-          />
-
-          {/* Accessible hidden text for screen readers & SEO */}
-          <h1
-            style={{
-              position: 'absolute',
-              width: 1,
-              height: 1,
-              padding: 0,
-              margin: -1,
-              overflow: 'hidden',
-              clip: 'rect(0, 0, 0, 0)',
-              border: 0
-            }}
-          >
-            Điều Kiện Vật Chất, Môi Trường Ảnh Hưởng Đến Sinh Viên Hiện Nay
-          </h1>
-
-          {/* Interactive "roll to" hotspot button over authentic Figma design */}
-          <motion.button
-            onClick={scrollToContent}
-            whileHover={{
-              scale: 1.08,
-              backgroundColor: 'rgba(115, 89, 64, 0.08)',
-              boxShadow: '0 4px 16px rgba(115, 89, 64, 0.12)'
-            }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              position: 'absolute',
-              top: '89.1%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 110,
-              height: 60,
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              outline: 'none',
-              zIndex: 10,
-              borderRadius: 20,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0
-            }}
-            title="Cuộn xuống cuối trang (roll to)"
-            aria-label="Cuộn xuống cuối trang"
-          />
-        </motion.section>
-
-        {/* ===================================================================
-            CONTENT BODY (Node 212:270)
-           =================================================================== */}
-        <div
-          id="content-body"
-          style={{
-            width: '100%',
-            maxWidth: 1280,
-            marginTop: 56,
-            scrollMarginTop: 100,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 64
-          }}
-        >
           {/* -----------------------------------------------------------------
               5.1. ĐIỀU KIỆN KINH TẾ (Node 212:271)
              ----------------------------------------------------------------- */}
@@ -395,8 +379,9 @@ export default function EnvironmentConditionPage({
                 </motion.div>
               </div>
 
-              {/* Right Column: Image Card (Node 212:314) */}
+              {/* Right Column: Image Card (Node 212:314) - Exact Figma 400x629 */}
               <motion.div
+                className="env-image-card-5-1"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{
@@ -409,7 +394,9 @@ export default function EnvironmentConditionPage({
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: '100%'
+                  overflow: 'hidden',
+                  height: '100%',
+                  minHeight: 0
                 }}
               >
                 <img
@@ -417,9 +404,8 @@ export default function EnvironmentConditionPage({
                   alt="Điều kiện kinh tế của sinh viên"
                   style={{
                     width: '100%',
-                    maxWidth: 360,
-                    height: 'auto',
-                    maxHeight: 589,
+                    height: '100%',
+                    minHeight: 0,
                     borderRadius: 8,
                     objectFit: 'cover',
                     display: 'block'
@@ -493,15 +479,7 @@ export default function EnvironmentConditionPage({
                   padding: 20
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-                  <div
-                    style={{
-                      width: 8,
-                      height: 8,
-                      borderRadius: '50%',
-                      backgroundColor: '#5f8f4e'
-                    }}
-                  />
+                <div style={{ marginBottom: 10 }}>
                   <span style={{ fontSize: 14, fontWeight: 700, color: '#2c1e15' }}>
                     Sinh viên A (Chủ động)
                   </span>
@@ -521,15 +499,7 @@ export default function EnvironmentConditionPage({
                   padding: 20
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-                  <div
-                    style={{
-                      width: 8,
-                      height: 8,
-                      borderRadius: '50%',
-                      backgroundColor: '#c98a3b'
-                    }}
-                  />
+                <div style={{ marginBottom: 10 }}>
                   <span style={{ fontSize: 14, fontWeight: 700, color: '#2c1e15' }}>
                     Sinh viên B (Thụ động)
                   </span>
@@ -588,8 +558,9 @@ export default function EnvironmentConditionPage({
 
             {/* Two Column Layout: Left Image & Right Content */}
             <div className="env-grid-2col-reverse">
-              {/* Left Column: Image Card (Node 212:342) */}
+              {/* Left Column: Image Card (Node 212:342) - Exact Figma 380x235 */}
               <motion.div
+                className="env-image-card-5-2"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{
@@ -602,7 +573,9 @@ export default function EnvironmentConditionPage({
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: '100%'
+                  overflow: 'hidden',
+                  height: '100%',
+                  minHeight: 0
                 }}
               >
                 <img
@@ -610,9 +583,8 @@ export default function EnvironmentConditionPage({
                   alt="Thiết bị học tập của sinh viên"
                   style={{
                     width: '100%',
-                    maxWidth: 340,
-                    height: 'auto',
-                    maxHeight: 195,
+                    height: '100%',
+                    minHeight: 0,
                     borderRadius: 8,
                     objectFit: 'cover',
                     display: 'block'
@@ -645,15 +617,7 @@ export default function EnvironmentConditionPage({
                       padding: 20
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-                      <div
-                        style={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          backgroundColor: '#5f8f4e'
-                        }}
-                      />
+                    <div style={{ marginBottom: 10 }}>
                       <span style={{ fontSize: 14, fontWeight: 700, color: '#2c1e15' }}>
                         Sinh viên A (Sử dụng chủ động)
                       </span>
@@ -673,15 +637,7 @@ export default function EnvironmentConditionPage({
                       padding: 20
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
-                      <div
-                        style={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          backgroundColor: '#c98a3b'
-                        }}
-                      />
+                    <div style={{ marginBottom: 10 }}>
                       <span style={{ fontSize: 14, fontWeight: 700, color: '#2c1e15' }}>
                         Sinh viên B (Sử dụng thụ động)
                       </span>
@@ -895,8 +851,9 @@ export default function EnvironmentConditionPage({
                 </motion.div>
               </div>
 
-              {/* Right Column: Image Card (Node 212:385) */}
+              {/* Right Column: Image Card (Node 212:385) - Exact Figma 400x280 */}
               <motion.div
+                className="env-image-card-5-4"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
                 style={{
@@ -909,7 +866,9 @@ export default function EnvironmentConditionPage({
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: '100%'
+                  overflow: 'hidden',
+                  height: '100%',
+                  minHeight: 0
                 }}
               >
                 <img
@@ -917,9 +876,8 @@ export default function EnvironmentConditionPage({
                   alt="Không gian học tập yên tĩnh"
                   style={{
                     width: '100%',
-                    maxWidth: 360,
-                    height: 'auto',
-                    maxHeight: 240,
+                    height: '100%',
+                    minHeight: 0,
                     borderRadius: 8,
                     objectFit: 'cover',
                     display: 'block'
@@ -929,7 +887,6 @@ export default function EnvironmentConditionPage({
             </div>
           </motion.section>
         </div>
-      </div>
 
       {/* ===================================================================
           3. GRADIENT DIVIDER / TRANSITION (Rectangle 15 / Node 298:3108)
@@ -1086,42 +1043,8 @@ export default function EnvironmentConditionPage({
           </div>
 
           {/* Right Column: CTA Button (Node 377:1314) */}
-          <div>
-            <motion.button
-              whileHover={{ scale: 1.04, boxShadow: '0 8px 24px rgba(255, 217, 0, 0.5)' }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => setIsReferencesOpen(true)}
-              style={{
-                backgroundColor: '#ffd900',
-                borderRadius: 26,
-                padding: '14px 32px',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-                boxShadow: '0 4px 16px rgba(255, 217, 0, 0.4)'
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 18,
-                  fontWeight: 700,
-                  color: '#0a0a0a'
-                }}
-              >
-                View References & Sources
-              </span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M5 12H19M19 12L12 5M19 12L12 19"
-                  stroke="#0a0a0a"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </motion.button>
+          <div style={{ display: 'flex' }}>
+            <FigmaCtaButton onClick={() => onNavClick('conclusion')} />
           </div>
         </div>
       </footer>

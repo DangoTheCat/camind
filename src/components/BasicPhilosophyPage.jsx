@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import FigmaOpenHeader from './FigmaOpenHeader'
 import FeedbackModal from './FeedbackModal'
 import ReferencesModal from './ReferencesModal'
+import FigmaCtaButton from './FigmaCtaButton'
 
 /**
  * BasicPhilosophyPage (2. Triết học cơ bản)
@@ -1211,8 +1212,8 @@ export default function BasicPhilosophyPage({
             margin: '0 auto',
             boxSizing: 'border-box',
             backgroundColor: '#FAF9F5',
-            padding: '64px 80px 72px 80px',
-            overflow: 'hidden'
+            padding: '64px 34px 72px 34px',
+            overflowX: 'auto'
           }}
         >
           {/* Header Section (Node 171:242, bounds: 1280x55, x: 80, y: 64) */}
@@ -1251,14 +1252,13 @@ export default function BasicPhilosophyPage({
               maxWidth: 1372,
               margin: '0 auto',
               position: 'relative',
-              overflowX: 'auto',
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
+              overflowX: 'visible'
             }}
           >
             <div
               style={{
                 width: 1372,
+                minWidth: 1372,
                 height: 620,
                 position: 'relative',
                 margin: '0 auto'
@@ -1278,102 +1278,116 @@ export default function BasicPhilosophyPage({
                 }}
               >
                 <defs>
-                  {/* Vertical Linear Gradient for Connector Pins (userSpaceOnUse ensures rendering on vertical lines) */}
-                  <linearGradient id="timelineConnectorGrad" x1="0" y1="280" x2="0" y2="440" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#FFB300" />
-                    <stop offset="100%" stopColor="#B3B600" />
+                  {/* Linear Gradients from Figma (paint0, paint1, paint3, paint4, paint6, paint7, paint9, paint10, paint12, paint13) */}
+                  <linearGradient id="paint0_linear_171_245" x1="140.288" y1="354.771" x2="138.537" y2="354.777" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
                   </linearGradient>
-
-                  {/* Gradient for Axis Node Dots */}
-                  <linearGradient id="timelineDotGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#FFB300" />
-                    <stop offset="100%" stopColor="#B3B600" />
+                  <linearGradient id="paint1_linear_171_245" x1="139.979" y1="302.125" x2="145.858" y2="317.366" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint3_linear_171_245" x1="420.288" y1="336.771" x2="418.537" y2="336.777" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint4_linear_171_245" x1="419.979" y1="302.125" x2="425.858" y2="317.366" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint6_linear_171_245" x1="700.288" y1="354.771" x2="698.537" y2="354.777" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint7_linear_171_245" x1="699.979" y1="302.125" x2="705.858" y2="317.366" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint9_linear_171_245" x1="980.288" y1="372.771" x2="978.537" y2="372.777" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint10_linear_171_245" x1="979.979" y1="302.125" x2="985.858" y2="317.366" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint12_linear_171_245" x1="1260.29" y1="354.771" x2="1258.54" y2="354.777" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
+                  </linearGradient>
+                  <linearGradient id="paint13_linear_171_245" x1="1259.98" y1="302.125" x2="1265.86" y2="317.366" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#FFB300" />
+                    <stop offset="1" stopColor="#B3B600" />
                   </linearGradient>
                 </defs>
 
-                {/* Central Baseline across all 5 milestones (Node 171:249, x: 140 to 1260, y: 310) */}
+                {/* 3 Curved Flows (Nodes 171:246, 171:247, 171:248) */}
+                <g opacity="0.5">
+                  <mask id="path-1-inside-1_171_245" fill="white">
+                    <path d="M536.962 282.216C542.033 305.225 540.744 328.843 533.185 351.411C525.626 373.979 511.981 394.948 493.209 412.846C474.436 430.744 450.992 445.135 424.524 455.009C398.055 464.883 369.205 470 340 470C310.795 470 281.945 464.883 255.476 455.009C229.008 445.135 205.564 430.744 186.791 412.846C168.019 394.948 154.374 373.979 146.815 351.411C139.256 328.843 137.967 305.225 143.038 282.216L145.008 282.494C139.987 305.273 141.264 328.655 148.747 350.997C156.23 373.339 169.738 394.099 188.323 411.818C206.908 429.536 230.118 443.784 256.322 453.559C282.525 463.334 311.087 468.4 340 468.4C368.913 468.4 397.475 463.334 423.678 453.559C449.882 443.784 473.092 429.536 491.677 411.818C510.262 394.099 523.77 373.339 531.253 350.997C538.736 328.655 540.013 305.273 534.992 282.494L536.962 282.216Z"/>
+                  </mask>
+                  <path d="M536.962 282.216C542.033 305.225 540.744 328.843 533.185 351.411C525.626 373.979 511.981 394.948 493.209 412.846C474.436 430.744 450.992 445.135 424.524 455.009C398.055 464.883 369.205 470 340 470C310.795 470 281.945 464.883 255.476 455.009C229.008 445.135 205.564 430.744 186.791 412.846C168.019 394.948 154.374 373.979 146.815 351.411C139.256 328.843 137.967 305.225 143.038 282.216L145.008 282.494C139.987 305.273 141.264 328.655 148.747 350.997C156.23 373.339 169.738 394.099 188.323 411.818C206.908 429.536 230.118 443.784 256.322 453.559C282.525 463.334 311.087 468.4 340 468.4C368.913 468.4 397.475 463.334 423.678 453.559C449.882 443.784 473.092 429.536 491.677 411.818C510.262 394.099 523.77 373.339 531.253 350.997C538.736 328.655 540.013 305.273 534.992 282.494L536.962 282.216Z" stroke="#D39F8A" strokeWidth="3" strokeDasharray="4 6" mask="url(#path-1-inside-1_171_245)"/>
+                </g>
+                <g opacity="0.5">
+                  <mask id="path-2-inside-2_171_245" fill="white">
+                    <path d="M423.038 307.784C417.967 284.775 419.256 261.157 426.815 238.589C434.374 216.021 448.019 195.052 466.791 177.154C485.564 159.256 509.008 144.865 535.476 134.991C561.945 125.117 590.795 120 620 120C649.205 120 678.055 125.117 704.524 134.991C730.992 144.865 754.436 159.256 773.209 177.154C791.981 195.052 805.626 216.021 813.185 238.589C820.744 261.157 822.033 284.775 816.962 307.784L814.992 307.506C820.013 284.727 818.736 261.345 811.253 239.003C803.77 216.661 790.262 195.901 771.677 178.182C753.092 160.464 729.882 146.216 703.678 136.441C677.475 126.666 648.913 121.6 620 121.6C591.087 121.6 562.525 126.666 536.322 136.441C510.118 146.216 486.908 160.464 468.323 178.182C449.738 195.901 436.23 216.661 428.747 239.003C421.264 261.345 419.987 284.727 425.008 307.506L423.038 307.784Z"/>
+                  </mask>
+                  <path d="M423.038 307.784C417.967 284.775 419.256 261.157 426.815 238.589C434.374 216.021 448.019 195.052 466.791 177.154C485.564 159.256 509.008 144.865 535.476 134.991C561.945 125.117 590.795 120 620 120C649.205 120 678.055 125.117 704.524 134.991C730.992 144.865 754.436 159.256 773.209 177.154C791.981 195.052 805.626 216.021 813.185 238.589C820.744 261.157 822.033 284.775 816.962 307.784L814.992 307.506C820.013 284.727 818.736 261.345 811.253 239.003C803.77 216.661 790.262 195.901 771.677 178.182C753.092 160.464 729.882 146.216 703.678 136.441C677.475 126.666 648.913 121.6 620 121.6C591.087 121.6 562.525 126.666 536.322 136.441C510.118 146.216 486.908 160.464 468.323 178.182C449.738 195.901 436.23 216.661 428.747 239.003C421.264 261.345 419.987 284.727 425.008 307.506L423.038 307.784Z" stroke="#D39F8A" strokeWidth="3" strokeDasharray="4 6" mask="url(#path-2-inside-2_171_245)"/>
+                </g>
+                <g opacity="0.5">
+                  <mask id="path-3-inside-3_171_245" fill="white">
+                    <path d="M1096.96 282.216C1102.03 305.225 1100.74 328.843 1093.19 351.411C1085.63 373.979 1071.98 394.948 1053.21 412.846C1034.44 430.744 1010.99 445.135 984.524 455.009C958.055 464.883 929.205 470 900 470C870.795 470 841.945 464.883 815.476 455.009C789.008 445.135 765.564 430.744 746.791 412.846C728.019 394.948 714.374 373.979 706.815 351.411C699.256 328.843 697.967 305.225 703.038 282.216L705.008 282.494C699.987 305.273 701.264 328.655 708.747 350.997C716.23 373.339 729.738 394.099 748.323 411.818C766.908 429.536 790.118 443.784 816.322 453.559C842.525 463.334 871.087 468.4 900 468.4C928.913 468.4 957.475 463.334 983.678 453.559C1009.88 443.784 1033.09 429.536 1051.68 411.818C1070.26 394.099 1083.77 373.339 1091.25 350.997C1098.74 328.655 1100.01 305.273 1094.99 282.494L1096.96 282.216Z"/>
+                  </mask>
+                  <path d="M1096.96 282.216C1102.03 305.225 1100.74 328.843 1093.19 351.411C1085.63 373.979 1071.98 394.948 1053.21 412.846C1034.44 430.744 1010.99 445.135 984.524 455.009C958.055 464.883 929.205 470 900 470C870.795 470 841.945 464.883 815.476 455.009C789.008 445.135 765.564 430.744 746.791 412.846C728.019 394.948 714.374 373.979 706.815 351.411C699.256 328.843 697.967 305.225 703.038 282.216L705.008 282.494C699.987 305.273 701.264 328.655 708.747 350.997C716.23 373.339 729.738 394.099 748.323 411.818C766.908 429.536 790.118 443.784 816.322 453.559C842.525 463.334 871.087 468.4 900 468.4C928.913 468.4 957.475 463.334 983.678 453.559C1009.88 443.784 1033.09 429.536 1051.68 411.818C1070.26 394.099 1083.77 373.339 1091.25 350.997C1098.74 328.655 1100.01 305.273 1094.99 282.494L1096.96 282.216Z" stroke="#D39F8A" strokeWidth="3" strokeDasharray="4 6" mask="url(#path-3-inside-3_171_245)"/>
+                </g>
+
+                {/* Central Baseline (Node 171:249, x: 140 to 1260, y: 309) */}
                 <line
+                  opacity="0.6"
                   x1="140"
-                  y1="310"
+                  y1="309"
                   x2="1260"
-                  y2="310"
+                  y2="309"
                   stroke="#D39F8A"
                   strokeWidth="2"
                   strokeDasharray="6 8"
-                  strokeOpacity="0.65"
                 />
 
-                {/* Curved Dashed Flow Arcs - Meeting EXACTLY at the 5 milestone dots (140, 420, 700, 980, 1260) */}
-                {/* Arc 1: Dot 0 (140, 310) -> Dot 1 (420, 310), curving DOWN */}
-                <path
-                  d="M 140 310 A 140 140 0 0 1 420 310"
-                  stroke="#D39F8A"
-                  strokeWidth="2"
-                  strokeDasharray="4 6"
-                  strokeOpacity="0.75"
-                  fill="none"
-                />
-                {/* Arc 2: Dot 1 (420, 310) -> Dot 2 (700, 310), curving UP */}
-                <path
-                  d="M 420 310 A 140 140 0 0 0 700 310"
-                  stroke="#D39F8A"
-                  strokeWidth="2"
-                  strokeDasharray="4 6"
-                  strokeOpacity="0.75"
-                  fill="none"
-                />
-                {/* Arc 3: Dot 2 (700, 310) -> Dot 3 (980, 310), curving DOWN */}
-                <path
-                  d="M 700 310 A 140 140 0 0 1 980 310"
-                  stroke="#D39F8A"
-                  strokeWidth="2"
-                  strokeDasharray="4 6"
-                  strokeOpacity="0.75"
-                  fill="none"
-                />
-                {/* Arc 4: Dot 3 (980, 310) -> Dot 4 (1260, 310), curving UP */}
-                <path
-                  d="M 980 310 A 140 140 0 0 0 1260 310"
-                  stroke="#D39F8A"
-                  strokeWidth="2"
-                  strokeDasharray="4 6"
-                  strokeOpacity="0.75"
-                  fill="none"
-                />
+                {/* 5 Connector Pins (Nodes 171:251, 171:261, 171:271, 171:281, 171:291) */}
+                <line opacity="0.4" x1="140.75" y1="300" x2="140.75" y2="410" stroke="url(#paint0_linear_171_245)" strokeWidth="1.5" />
+                <line opacity="0.4" x1="420.75" y1="282" x2="420.75" y2="392" stroke="url(#paint3_linear_171_245)" strokeWidth="1.5" />
+                <line opacity="0.4" x1="700.75" y1="300" x2="700.75" y2="410" stroke="url(#paint6_linear_171_245)" strokeWidth="1.5" />
+                <line opacity="0.4" x1="980.75" y1="318" x2="980.75" y2="428" stroke="url(#paint9_linear_171_245)" strokeWidth="1.5" />
+                <line opacity="0.4" x1="1260.75" y1="300" x2="1260.75" y2="410" stroke="url(#paint12_linear_171_245)" strokeWidth="1.5" />
 
-                {/* 5 Vertical Connector Pins pointing DOWNWARDS from baseline (Nodes 171:251, 171:261, 171:271, 171:281, 171:291) */}
-                {/* M0 Pin (x=140, y=300 down to y=415) */}
-                <line x1="140" y1="300" x2="140" y2="415" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
-                {/* M1 Pin (x=420, y=295 down to y=430 pointing directly towards bottom title) */}
-                <line x1="420" y1="295" x2="420" y2="430" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
-                {/* M2 Pin (x=700, y=300 down to y=415) */}
-                <line x1="700" y1="300" x2="700" y2="415" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
-                {/* M3 Pin (x=980, y=295 down to y=430 pointing directly towards bottom title) */}
-                <line x1="980" y1="295" x2="980" y2="430" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
-                {/* M4 Pin (x=1260, y=300 down to y=415) */}
-                <line x1="1260" y1="300" x2="1260" y2="415" stroke="url(#timelineConnectorGrad)" strokeWidth="2.5" strokeLinecap="round" strokeOpacity="0.85" />
-
-                {/* 5 Axis Nodes (Milestone dots where the alternating arcs intersect and connect) */}
-                {[140, 420, 700, 980, 1260].map((cx) => (
-                  <g key={cx}>
-                    {/* Glowing outer aura */}
-                    <circle cx={cx} cy="310" r="10" fill="#FFB300" fillOpacity="0.22" />
-                    {/* Gold core node */}
-                    <circle cx={cx} cy="310" r="5.5" fill="url(#timelineDotGrad)" stroke="#FFFFFF" strokeWidth="1.2" />
-                    {/* Crisp white center point */}
-                    <circle cx={cx} cy="310" r="2" fill="#FFFFFF" />
-                  </g>
-                ))}
+                {/* 5 Axis Nodes (Nodes 171:252, 171:262, 171:272, 171:282, 171:292) */}
+                <circle cx="140" cy="310" r="5" fill="url(#paint1_linear_171_245)" />
+                <circle cx="420" cy="310" r="5" fill="url(#paint4_linear_171_245)" />
+                <circle cx="700" cy="310" r="5" fill="url(#paint7_linear_171_245)" />
+                <circle cx="980" cy="310" r="5" fill="url(#paint10_linear_171_245)" />
+                <circle cx="1260" cy="310" r="5" fill="url(#paint13_linear_171_245)" />
               </svg>
 
               {/* 5 Milestone Info-Blocks (Exact Figma Coordinates & Typography) */}
               {[
                 {
                   id: 0,
-                  era: 'Thế kỷ XVIII - XIX',
-                  title: 'Cách mạng Công nghiệp',
-                  material: 'Biến đổi: Máy hơi nước, nhà máy, đô thị hóa',
-                  learning: 'Chuyển từ học nghề cá thể sang hệ thống trường học đại chúng',
+                  era: 'Thế kỷ XIX',
+                  title: 'Cách mạng công nghiệp',
+                  material: (
+                    <>
+                      Biến đổi: Máy hơi nước, nhà máy, đô
+                      <br />
+                      thị hóa
+                    </>
+                  ),
+                  learning: (
+                    <>
+                      Chuyển từ học nghề cá thể sang hệ thống
+                      <br />
+                      trường học đại chúng
+                    </>
+                  ),
                   left: 30,
                   top: 100,
                   isTop: true
@@ -1382,8 +1396,20 @@ export default function BasicPhilosophyPage({
                   id: 1,
                   era: 'Năm 1917',
                   title: 'Cách mạng Tháng Mười',
-                  material: 'Biến đổi: Xóa bỏ chế độ áp bức, thay đổi quan hệ sản xuất',
-                  learning: 'Quần chúng công nông được tiếp cận giáo dục bình đẳng',
+                  material: (
+                    <>
+                      Biến đổi: Xóa bỏ chế độ áp bức, thay
+                      <br />
+                      đổi quan hệ sản xuất
+                    </>
+                  ),
+                  learning: (
+                    <>
+                      Quần chúng công nông được tiếp cận
+                      <br />
+                      giáo dục bình đẳng
+                    </>
+                  ),
                   left: 310,
                   top: 451,
                   isTop: false
@@ -1392,8 +1418,20 @@ export default function BasicPhilosophyPage({
                   id: 2,
                   era: 'Cuối Thế kỷ XX',
                   title: 'Máy tính & Internet',
-                  material: 'Biến đổi: Máy tính cá nhân, mạng toàn cầu, smartphone',
-                  learning: 'Tri thức mở rộng; người học chuyển từ thụ động sang tự tra cứu',
+                  material: (
+                    <>
+                      Biến đổi: Máy tính cá nhân, mạng toàn
+                      <br />
+                      cầu, smartphone
+                    </>
+                  ),
+                  learning: (
+                    <>
+                      Tri thức mở rộng; người học chuyển từ thụ
+                      <br />
+                      động sang tự tra cứu
+                    </>
+                  ),
                   left: 590,
                   top: 100,
                   isTop: true
@@ -1402,18 +1440,42 @@ export default function BasicPhilosophyPage({
                   id: 3,
                   era: 'Năm 2020',
                   title: 'Đại dịch COVID-19',
-                  material: 'Biến đổi: Giãn cách xã hội, bắt buộc học trực tuyến',
-                  learning: 'Đòi hỏi cao về tính tự giác, kỷ luật và năng lực công nghệ',
+                  material: (
+                    <>
+                      Biến đổi: Giãn cách xã hội, bắt buộc
+                      <br />
+                      học trực tuyến
+                    </>
+                  ),
+                  learning: (
+                    <>
+                      Đòi hỏi cao về tính tự giác, kỷ luật và năng
+                      <br />
+                      lực công nghệ
+                    </>
+                  ),
                   left: 870,
                   top: 451,
                   isTop: false
                 },
                 {
                   id: 4,
-                  era: 'Kỷ nguyên Mới',
+                  era: 'Kỷ nguyên AI',
                   title: 'Kỷ nguyên AI',
-                  material: 'Biến đổi: Trợ lý AI (ChatGPT, Gemini) tự động hóa tri thức',
-                  learning: 'Học thuộc lòng mất giá trị; tư duy phản biện trở thành cốt lõi',
+                  material: (
+                    <>
+                      Biến đổi: Trợ lý AI (ChatGPT, Gemini) tự
+                      <br />
+                      động hóa tri thức
+                    </>
+                  ),
+                  learning: (
+                    <>
+                      Học thuộc lòng mất giá trị; tư duy phản
+                      <br />
+                      biện trở thành cốt lõi
+                    </>
+                  ),
                   left: 1150,
                   top: 100,
                   isTop: true
@@ -1421,7 +1483,7 @@ export default function BasicPhilosophyPage({
               ].map((m) => (
                 <motion.div
                   key={m.id}
-                  whileHover={{ y: m.isTop ? -6 : 6, scale: 1.03 }}
+                  whileHover={{ y: m.isTop ? -4 : 4, scale: 1.02 }}
                   transition={{ duration: 0.2, ease: 'easeOut' }}
                   style={{
                     position: 'absolute',
@@ -1442,13 +1504,13 @@ export default function BasicPhilosophyPage({
                   {/* era-label (Node 171:255, Bold 14px, gradient gold) */}
                   <div
                     style={{
-                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
                       fontSize: 14,
                       fontWeight: 700,
                       background: 'linear-gradient(180deg, #ffb200 0%, #b3b600 100%)',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
-                      lineHeight: '22px',
+                      lineHeight: '25px',
                       letterSpacing: '0.02em',
                       textAlign: 'center',
                       width: '100%'
@@ -1460,11 +1522,11 @@ export default function BasicPhilosophyPage({
                   {/* milestone-title (Node 171:256, Bold 16px, color: #2f231d) */}
                   <div
                     style={{
-                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
                       fontSize: 16,
                       fontWeight: 700,
                       color: '#2f231d',
-                      lineHeight: '24px',
+                      lineHeight: '29px',
                       marginTop: 2,
                       textAlign: 'center',
                       width: '100%'
@@ -1480,7 +1542,7 @@ export default function BasicPhilosophyPage({
                       height: 2,
                       backgroundColor: '#d39f8a',
                       opacity: 0.5,
-                      margin: '8px auto',
+                      margin: '6px auto',
                       borderRadius: 1
                     }}
                   />
@@ -1488,7 +1550,7 @@ export default function BasicPhilosophyPage({
                   {/* material-change (Node 171:258, Regular 12px, color: #6e5b54) */}
                   <div
                     style={{
-                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
                       fontSize: 12,
                       fontWeight: 400,
                       color: '#6e5b54',
@@ -1503,7 +1565,7 @@ export default function BasicPhilosophyPage({
                   {/* learning-change (Node 171:259, Regular 11px, color: #9c8a82) */}
                   <div
                     style={{
-                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
                       fontSize: 11,
                       fontWeight: 400,
                       color: '#9c8a82',
@@ -2332,152 +2394,167 @@ export default function BasicPhilosophyPage({
           </div>
         </section>
 
+        {/* Smooth Transition Gradient into Footer (Node 377:1310) */}
+        <div
+          style={{
+            width: '100%',
+            height: 248,
+            background: 'linear-gradient(180deg, #FAF9F5 0%, #ffecc4 100%)',
+            display: 'block'
+          }}
+        />
+
         {/* ===================================================================
             SECTION 6: CHÂN TRANG (Figma Node 298:3078 / Frame 10)
-            1440x300 - Footer with References Modal & "Scroll to top"
+            Footer with References Modal & "Scroll to top"
            =================================================================== */}
         <footer
           id="section-footer"
           style={{
             position: 'relative',
             width: '100%',
-            maxWidth: 1440,
-            boxSizing: 'border-box',
-            backgroundColor: '#ffecc3',
             minHeight: 300,
-            overflow: 'hidden',
-            padding: '40px 80px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between'
+            backgroundColor: '#ffecc3',
+            padding: '40px 60px',
+            boxSizing: 'border-box',
+            overflow: 'hidden'
           }}
         >
-          {/* Logo Camind Watermark in Background */}
+          {/* Subtle Watermark Logo Camind in Background (Node 298:3111) */}
           <div
             style={{
               position: 'absolute',
-              right: 40,
-              bottom: 10,
-              fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
-              fontSize: 130,
-              fontWeight: 900,
-              color: 'rgba(183, 121, 31, 0.08)',
+              right: -20,
+              bottom: -30,
+              width: 755,
+              height: 148,
+              opacity: 0.22,
               pointerEvents: 'none',
-              userSelect: 'none',
-              letterSpacing: '-2px'
+              zIndex: 1
             }}
           >
-            camind
+            <img
+              src="/assets/camind_logo_footer.svg"
+              alt=""
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
           </div>
 
-          {/* "Scroll to top" Indicator (Figma Node 367:10800) */}
-          <motion.div
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToTop}
-            style={{
-              cursor: 'pointer',
-              display: 'inline-flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              width: 'fit-content',
-              zIndex: 10,
-              marginBottom: 20
-            }}
-            title="Trở về đầu trang (Hero Triết gia)"
-          >
-            {/* Chevron Up 1 */}
-            <svg width="16" height="8" viewBox="0 0 16 8" fill="none">
-              <path
-                d="M1 7L8 1L15 7"
-                stroke="#735940"
-                strokeOpacity="0.7"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {/* Chevron Up 2 */}
-            <svg width="16" height="8" viewBox="0 0 16 8" fill="none" style={{ marginTop: 2 }}>
-              <path
-                d="M1 7L8 1L15 7"
-                stroke="#735940"
-                strokeOpacity="0.45"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span
-              style={{
-                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
-                fontSize: 11,
-                fontWeight: 400,
-                color: 'rgba(115, 89, 64, 0.6)',
-                letterSpacing: '1.5px',
-                marginTop: 6,
-                lineHeight: '20px',
-                textTransform: 'none'
-              }}
-            >
-              roll to
-            </span>
-          </motion.div>
-
-          {/* Main Footer Content Row */}
+          {/* Top Roll-to indicator (Node 367:10810) */}
           <div
             style={{
+              position: 'relative',
+              zIndex: 10,
+              maxWidth: 1280,
+              margin: '0 auto',
+              marginBottom: 24
+            }}
+          >
+            <motion.div
+              onClick={scrollToTop}
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.94 }}
+              style={{
+                cursor: 'pointer',
+                display: 'inline-flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '6px 12px',
+                borderRadius: 12,
+                userSelect: 'none'
+              }}
+              title="Cuộn lên đầu trang (roll to top)"
+              aria-label="Cuộn lên đầu trang"
+            >
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+              >
+                <svg width="16" height="8" viewBox="0 0 16 8" fill="none">
+                  <path d="M1 7L8 1L15 7" stroke="#735940" strokeOpacity="0.8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <svg width="16" height="8" viewBox="0 0 16 8" fill="none" style={{ marginTop: 2 }}>
+                  <path d="M1 7L8 1L15 7" stroke="#735940" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </motion.div>
+              <span
+                style={{
+                  fontSize: 11,
+                  color: 'rgba(115, 89, 64, 0.75)',
+                  letterSpacing: '1.5px',
+                  marginTop: 4,
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+                  fontWeight: 600,
+                  textTransform: 'uppercase'
+                }}
+              >
+                roll to
+              </span>
+            </motion.div>
+          </div>
+
+          {/* Main Footer Content Row (Node 298:3124) */}
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 10,
+              maxWidth: 1280,
+              margin: '0 auto',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              position: 'relative',
-              zIndex: 10
+              flexWrap: 'wrap',
+              gap: 32
             }}
           >
-            {/* Left Column */}
-            <div style={{ maxWidth: 500 }}>
-              <h2
+            {/* Left Column (Node 298:3125) */}
+            <div style={{ maxWidth: 520 }}>
+              {/* Thank you title with gradient (Node 298:3127) */}
+              <h3
                 style={{
-                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 32,
                   fontWeight: 700,
-                  color: '#111827',
+                  background: 'linear-gradient(180deg, #ffb200 0%, #b3b600 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  margin: '0 0 8px 0',
                   letterSpacing: '-0.5px',
-                  margin: 0,
-                  lineHeight: 1.15
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
                 }}
               >
                 Thank you for watching!
-              </h2>
+              </h3>
 
+              {/* Author info (Node 298:3128) */}
               <div
                 style={{
-                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 18,
-                  fontWeight: 400,
                   color: '#4e4e4e',
-                  marginTop: 8
+                  marginBottom: 16,
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
                 }}
               >
                 Created by: camind Team - Research & Presentation
               </div>
 
-              <div style={{ marginTop: 20 }}>
+              {/* Copyright & Tagline (Node 298:3129) */}
+              <div>
                 <div
                   style={{
-                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 14,
-                    color: 'rgba(78, 78, 78, 0.7)'
+                    color: 'rgba(78, 78, 78, 0.7)',
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
                   }}
                 >
                   © 2024 camind. All rights reserved.
                 </div>
                 <div
                   style={{
-                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 14,
                     color: 'rgba(78, 78, 78, 0.7)',
-                    marginTop: 4
+                    marginTop: 4,
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
                   }}
                 >
                   Empowering discovery through deep research and visual storytelling.
@@ -2485,44 +2562,9 @@ export default function BasicPhilosophyPage({
               </div>
             </div>
 
-            {/* Right Column: CTA Button */}
+            {/* Right Column: CTA Button (Node 377:1314) */}
             <div>
-              <motion.button
-                whileHover={{ scale: 1.04, boxShadow: '0 8px 24px rgba(255, 217, 0, 0.6)' }}
-                whileTap={{ scale: 0.96 }}
-                onClick={() => setIsReferencesOpen(true)}
-                style={{
-                  backgroundColor: '#ffd900',
-                  borderRadius: 26,
-                  padding: '14px 34px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 12,
-                  boxShadow: '0 4px 16px rgba(255, 217, 0, 0.45)'
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
-                    fontSize: 18,
-                    fontWeight: 700,
-                    color: '#0a0a0a'
-                  }}
-                >
-                  View References & Sources
-                </span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                    stroke="#0a0a0a"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </motion.button>
+              <FigmaCtaButton onClick={() => onNavClick('conclusion')} />
             </div>
           </div>
         </footer>

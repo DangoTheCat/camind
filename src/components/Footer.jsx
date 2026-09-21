@@ -1,5 +1,6 @@
 import React from 'react'
-import { ArrowUp, ArrowRight } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
+import FigmaCtaButton from './FigmaCtaButton'
 
 export default function Footer({ onOpenReferences }) {
   const scrollToTop = () => {
@@ -24,14 +25,7 @@ export default function Footer({ onOpenReferences }) {
         </div>
 
         <div className="footer-right">
-          <button
-            onClick={onOpenReferences}
-            className="btn-view-references"
-            title="Xem danh mục 9 tài liệu tham khảo và công cụ nghiên cứu"
-          >
-            <span>View References & Sources</span>
-            <ArrowRight size={18} />
-          </button>
+          <FigmaCtaButton onClick={onOpenReferences} />
         </div>
       </div>
 

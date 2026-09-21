@@ -33,3 +33,4 @@ figma_exports/
 MLN111_FIGMACONVERT/
 .agents/
 scratch/
+*.traineddata

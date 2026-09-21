@@ -9,14 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^2.23.0",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^13.4.0",
-    "lucide-react": "^1.16.0",
+    "lucide-react": "^1.47.0",
     "motion": "^13.4.0",
     "omggif": "^1.0.10",
     "pngjs": "^7.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
