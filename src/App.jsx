@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import OpeningSequence from './components/OpeningSequence'
 import Wireframe2Destination from './components/Wireframe2Destination'
 import BasicPhilosophyPage from './components/BasicPhilosophyPage'
+import EnvironmentConditionPage from './components/EnvironmentConditionPage'
 
 export default function App() {
-  // Screen state: 'open' | 'wireframe2' | 'theory'
+  // Screen state: 'open' | 'wireframe2' | 'theory' | 'environment'
   const [currentScreen, setCurrentScreen] = useState('open')
   // Active nav tab: default null -> all 4 tabs render WHITE
   const [activeTab, setActiveTab] = useState(null)
@@ -18,6 +19,8 @@ export default function App() {
       setCurrentScreen('wireframe2')
     } else if (tabKey === 'theory') {
       setCurrentScreen('theory')
+    } else if (tabKey === 'history' || tabKey === 'environment') {
+      setCurrentScreen('environment')
     }
   }
 
@@ -43,6 +46,14 @@ export default function App() {
             setCurrentScreen('wireframe2')
             setActiveTab('intro')
           }}
+        />
+      ) : currentScreen === 'environment' || activeTab === 'history' || activeTab === 'environment' ? (
+        <EnvironmentConditionPage
+          activeTab={activeTab || 'history'}
+          isControllerActive={isControllerActive}
+          onNavClick={handleNavClick}
+          onControllerClick={handleControllerClick}
+          onLogoClick={handleLogoClick}
         />
       ) : currentScreen === 'theory' || activeTab === 'theory' ? (
         <BasicPhilosophyPage

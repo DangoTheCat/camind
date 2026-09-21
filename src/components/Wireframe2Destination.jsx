@@ -605,7 +605,7 @@ export default function Wireframe2Destination({
             <span
               style={{
                 marginTop: 4,
-                fontFamily: "'Kantumruy Pro', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 11,
                 color: '#735940',
                 letterSpacing: 1.5,

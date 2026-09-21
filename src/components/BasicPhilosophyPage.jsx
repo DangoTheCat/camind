@@ -9,7 +9,7 @@ import ReferencesModal from './ReferencesModal'
  * 100% Exact Match to Figma Wireframe - 3 (Node 252:638) & Component 14 (Node 252:838):
  *
  * Exact Typography & Layout Specs for content-left:
- * - Font Family: 'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif throughout
+ * - Font Family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif throughout
  * - Header Row:
  *     - "HISTORICAL THEORY" (fontSize: 12px, bold, color: #111827)
  *     - Line (width: 24px, color: #cccccc)
@@ -179,7 +179,7 @@ export default function BasicPhilosophyPage({
         backgroundColor: '#FAF9F5',
         overflowX: 'hidden',
         userSelect: 'none',
-        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif"
+        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
       }}
     >
       {/* ===================================================================
@@ -289,7 +289,7 @@ export default function BasicPhilosophyPage({
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 12,
                     fontWeight: 700,
                     color: '#111827',
@@ -301,7 +301,7 @@ export default function BasicPhilosophyPage({
                 <span style={{ width: 16, height: 1, backgroundColor: '#d1d5db', display: 'inline-block' }} />
                 <span
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 12,
                     fontWeight: 400,
                     color: '#6b7280',
@@ -333,7 +333,7 @@ export default function BasicPhilosophyPage({
                 >
                   <span
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 11,
                       fontWeight: 700,
                       color: '#6b7280',
@@ -371,7 +371,7 @@ export default function BasicPhilosophyPage({
                       position: 'absolute',
                       top: 0,
                       left: 0,
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 96,
                       fontWeight: 700,
                       color: '#111827',
@@ -395,7 +395,7 @@ export default function BasicPhilosophyPage({
                       exit={{ opacity: 0, y: -12 }}
                       transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 56,
                         fontWeight: 700,
                         color: '#111827',
@@ -419,7 +419,7 @@ export default function BasicPhilosophyPage({
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 16,
                         fontWeight: 400,
                         color: '#6b7280',
@@ -446,7 +446,7 @@ export default function BasicPhilosophyPage({
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 15,
                       fontWeight: 400,
                       color: '#374151',
@@ -485,7 +485,7 @@ export default function BasicPhilosophyPage({
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.35, ease: [0.42, 0, 0.58, 1] }}
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 22,
                         fontWeight: 400,
                         color: '#111827',
@@ -517,7 +517,7 @@ export default function BasicPhilosophyPage({
                 {/* Timeline Title (Node 149:262) */}
                 <div
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 11,
                     fontWeight: 700,
                     color: '#6b7280',
@@ -578,7 +578,7 @@ export default function BasicPhilosophyPage({
                               style={{
                                 width: 44,
                                 flexShrink: 0,
-                                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                                 fontSize: 13,
                                 fontWeight: 700,
                                 color: isHovered ? '#ffffff' : '#b7791f',
@@ -590,7 +590,7 @@ export default function BasicPhilosophyPage({
                             {/* Description: White when hovered, #374151 when normal */}
                             <span
                               style={{
-                                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                                 fontSize: 13,
                                 fontWeight: 400,
                                 color: isHovered ? '#ffffff' : '#374151',
@@ -640,7 +640,7 @@ export default function BasicPhilosophyPage({
                 {/* Contrib Title */}
                 <div
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 11,
                     fontWeight: 700,
                     color: '#b7791f',
@@ -665,7 +665,7 @@ export default function BasicPhilosophyPage({
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 12,
                         fontWeight: 400,
                         color: '#4b5563',
@@ -724,7 +724,7 @@ export default function BasicPhilosophyPage({
                         boxShadow: isActive ? 'none' : '0 2px 6px rgba(0,0,0,0.08)',
                         padding: '7px 18px',
                         borderRadius: 20,
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 15,
                         fontWeight: isActive ? 700 : 400,
                         color: isActive ? '#ffffff' : '#404040',
@@ -783,7 +783,7 @@ export default function BasicPhilosophyPage({
                 />
                 <span
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 11,
                     fontWeight: 400,
                     color: '#6b7280',
@@ -885,7 +885,7 @@ export default function BasicPhilosophyPage({
             >
               <div
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 11,
                   fontWeight: 700,
                   letterSpacing: '0.12em',
@@ -905,7 +905,7 @@ export default function BasicPhilosophyPage({
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.2 }}
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 12,
                     fontWeight: 400,
                     color: '#111827',
@@ -942,7 +942,7 @@ export default function BasicPhilosophyPage({
             {/* Text on top */}
             <span
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 11,
                 fontWeight: 400,
                 color: 'rgba(115, 89, 64, 0.6)',
@@ -1011,7 +1011,7 @@ export default function BasicPhilosophyPage({
               />
               <span
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 12,
                   fontWeight: 700,
                   color: '#606662',
@@ -1025,7 +1025,7 @@ export default function BasicPhilosophyPage({
 
             <h2
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 28,
                 fontWeight: 700,
                 color: '#1c1f1d',
@@ -1131,7 +1131,7 @@ export default function BasicPhilosophyPage({
                   >
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 12,
                         fontWeight: 700,
                         color: card.tagColor,
@@ -1142,7 +1142,7 @@ export default function BasicPhilosophyPage({
                     </span>
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 20,
                         fontWeight: 700,
                         color: card.tagColor,
@@ -1155,7 +1155,7 @@ export default function BasicPhilosophyPage({
 
                   <h3
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 18,
                       fontWeight: 700,
                       color: '#1c1f1d',
@@ -1168,7 +1168,7 @@ export default function BasicPhilosophyPage({
                   {card.subtitle && (
                     <div
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 13,
                         fontWeight: 700,
                         color: card.tagColor,
@@ -1182,7 +1182,7 @@ export default function BasicPhilosophyPage({
 
                 <p
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 13,
                     fontWeight: 400,
                     lineHeight: 1.6,
@@ -1219,7 +1219,7 @@ export default function BasicPhilosophyPage({
           <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center', marginBottom: 48 }}>
             <h2
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 26,
                 fontWeight: 700,
                 color: '#2f231d',
@@ -1442,7 +1442,7 @@ export default function BasicPhilosophyPage({
                   {/* era-label (Node 171:255, Bold 14px, gradient gold) */}
                   <div
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 14,
                       fontWeight: 700,
                       background: 'linear-gradient(180deg, #ffb200 0%, #b3b600 100%)',
@@ -1460,7 +1460,7 @@ export default function BasicPhilosophyPage({
                   {/* milestone-title (Node 171:256, Bold 16px, color: #2f231d) */}
                   <div
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 16,
                       fontWeight: 700,
                       color: '#2f231d',
@@ -1488,7 +1488,7 @@ export default function BasicPhilosophyPage({
                   {/* material-change (Node 171:258, Regular 12px, color: #6e5b54) */}
                   <div
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 12,
                       fontWeight: 400,
                       color: '#6e5b54',
@@ -1503,7 +1503,7 @@ export default function BasicPhilosophyPage({
                   {/* learning-change (Node 171:259, Regular 11px, color: #9c8a82) */}
                   <div
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 11,
                       fontWeight: 400,
                       color: '#9c8a82',
@@ -1534,7 +1534,7 @@ export default function BasicPhilosophyPage({
           >
             <span
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 12,
                 fontWeight: 400,
                 color: '#9c8a82'
@@ -1544,7 +1544,7 @@ export default function BasicPhilosophyPage({
             </span>
             <span
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 12,
                 fontWeight: 700,
                 background: 'linear-gradient(180deg, #ffb200 0%, #b3b600 100%)',
@@ -1592,7 +1592,7 @@ export default function BasicPhilosophyPage({
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 12,
                     fontWeight: 700,
                     color: '#111827',
@@ -1604,7 +1604,7 @@ export default function BasicPhilosophyPage({
                 <div style={{ width: 16, height: 1, backgroundColor: '#d1d5db' }} />
                 <span
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 12,
                     fontWeight: 400,
                     color: '#6b7280'
@@ -1624,7 +1624,7 @@ export default function BasicPhilosophyPage({
               >
                 <span
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 11,
                     fontWeight: 700,
                     color: '#6b7280'
@@ -1639,7 +1639,7 @@ export default function BasicPhilosophyPage({
             <div style={{ maxWidth: 920, margin: '0 auto', textAlign: 'center', marginBottom: 36 }}>
               <div
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 72,
                   fontWeight: 700,
                   color: '#111827',
@@ -1652,7 +1652,7 @@ export default function BasicPhilosophyPage({
               </div>
               <h2
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 38,
                   fontWeight: 700,
                   color: '#111827',
@@ -1664,7 +1664,7 @@ export default function BasicPhilosophyPage({
               </h2>
               <div
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 14,
                   fontWeight: 400,
                   color: '#6b7280',
@@ -1689,7 +1689,7 @@ export default function BasicPhilosophyPage({
                 >
                   <div
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 12,
                       fontWeight: 700,
                       color: '#6b7280',
@@ -1737,7 +1737,7 @@ export default function BasicPhilosophyPage({
                       >
                         <h4
                           style={{
-                            fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                            fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                             fontSize: 14,
                             fontWeight: 700,
                             color: '#111827',
@@ -1748,7 +1748,7 @@ export default function BasicPhilosophyPage({
                         </h4>
                         <p
                           style={{
-                            fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                            fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                             fontSize: 12,
                             fontWeight: 400,
                             color: '#4b5563',
@@ -1775,7 +1775,7 @@ export default function BasicPhilosophyPage({
                 >
                   <div
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 12,
                       fontWeight: 700,
                       color: '#6b7280',
@@ -1825,7 +1825,7 @@ export default function BasicPhilosophyPage({
                       >
                         <h4
                           style={{
-                            fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                            fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                             fontSize: 13,
                             fontWeight: 700,
                             color: '#111827',
@@ -1870,7 +1870,7 @@ export default function BasicPhilosophyPage({
                 >
                   <div
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 12,
                       fontWeight: 700,
                       color: '#6b7280',
@@ -1921,7 +1921,7 @@ export default function BasicPhilosophyPage({
                       >
                         <h4
                           style={{
-                            fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                            fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                             fontSize: 13,
                             fontWeight: 700,
                             color: '#c28c33',
@@ -1932,7 +1932,7 @@ export default function BasicPhilosophyPage({
                         </h4>
                         <p
                           style={{
-                            fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                            fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                             fontSize: 12,
                             fontWeight: 400,
                             color: '#4b5563',
@@ -1961,7 +1961,7 @@ export default function BasicPhilosophyPage({
                   border: '1px solid #d1d5db',
                   backgroundColor: '#ffffff',
                   cursor: 'pointer',
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 13,
                   fontWeight: 600,
                   color: '#66594d',
@@ -2057,7 +2057,7 @@ export default function BasicPhilosophyPage({
               />
               <span
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 11,
                   color: '#6b7280',
                   letterSpacing: '1px'
@@ -2090,7 +2090,7 @@ export default function BasicPhilosophyPage({
           <div style={{ maxWidth: 1296, margin: '0 auto', textAlign: 'center', marginBottom: 36 }}>
             <span
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 12,
                 fontWeight: 700,
                 color: '#b3954c',
@@ -2102,7 +2102,7 @@ export default function BasicPhilosophyPage({
             </span>
             <h2
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 44,
                 fontWeight: 700,
                 color: '#241c16',
@@ -2115,7 +2115,7 @@ export default function BasicPhilosophyPage({
             </h2>
             <p
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 16,
                 fontStyle: 'italic',
                 color: '#4a372c',
@@ -2194,7 +2194,7 @@ export default function BasicPhilosophyPage({
                 <div>
                   <span
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 11,
                       fontWeight: 700,
                       color: '#b3954c',
@@ -2206,7 +2206,7 @@ export default function BasicPhilosophyPage({
                   </span>
                   <h3
                     style={{
-                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                       fontSize: 28,
                       fontWeight: 700,
                       color: '#241c16',
@@ -2222,7 +2222,7 @@ export default function BasicPhilosophyPage({
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 12,
                         fontWeight: 700,
                         color: '#241c16',
@@ -2234,7 +2234,7 @@ export default function BasicPhilosophyPage({
                     </span>
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 15,
                         color: '#241c16',
                         opacity: 0.9
@@ -2247,7 +2247,7 @@ export default function BasicPhilosophyPage({
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 12,
                         fontWeight: 700,
                         color: '#241c16',
@@ -2259,7 +2259,7 @@ export default function BasicPhilosophyPage({
                     </span>
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 15,
                         color: '#241c16',
                         opacity: 0.9
@@ -2272,7 +2272,7 @@ export default function BasicPhilosophyPage({
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 12,
                         fontWeight: 700,
                         color: '#241c16',
@@ -2284,7 +2284,7 @@ export default function BasicPhilosophyPage({
                     </span>
                     <span
                       style={{
-                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                         fontSize: 15,
                         color: '#241c16',
                         opacity: 0.9
@@ -2312,7 +2312,7 @@ export default function BasicPhilosophyPage({
           >
             <span
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 12,
                 color: '#6e5b54'
               }}
@@ -2321,7 +2321,7 @@ export default function BasicPhilosophyPage({
             </span>
             <span
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 12,
                 fontWeight: 700,
                 color: '#b3954c'
@@ -2358,7 +2358,7 @@ export default function BasicPhilosophyPage({
               position: 'absolute',
               right: 40,
               bottom: 10,
-              fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+              fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
               fontSize: 130,
               fontWeight: 900,
               color: 'rgba(183, 121, 31, 0.08)',
@@ -2410,7 +2410,7 @@ export default function BasicPhilosophyPage({
             </svg>
             <span
               style={{
-                fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 fontSize: 11,
                 fontWeight: 400,
                 color: 'rgba(115, 89, 64, 0.6)',
@@ -2438,7 +2438,7 @@ export default function BasicPhilosophyPage({
             <div style={{ maxWidth: 500 }}>
               <h2
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 32,
                   fontWeight: 700,
                   color: '#111827',
@@ -2452,7 +2452,7 @@ export default function BasicPhilosophyPage({
 
               <div
                 style={{
-                  fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                  fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                   fontSize: 18,
                   fontWeight: 400,
                   color: '#4e4e4e',
@@ -2465,7 +2465,7 @@ export default function BasicPhilosophyPage({
               <div style={{ marginTop: 20 }}>
                 <div
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 14,
                     color: 'rgba(78, 78, 78, 0.7)'
                   }}
@@ -2474,7 +2474,7 @@ export default function BasicPhilosophyPage({
                 </div>
                 <div
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 14,
                     color: 'rgba(78, 78, 78, 0.7)',
                     marginTop: 4
@@ -2505,7 +2505,7 @@ export default function BasicPhilosophyPage({
               >
                 <span
                   style={{
-                    fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                    fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                     fontSize: 18,
                     fontWeight: 700,
                     color: '#0a0a0a'

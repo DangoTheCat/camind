@@ -183,7 +183,7 @@ export default function FigmaOpenHeader({
           >
             <img
               src={
-                hoveredTab === 'history' || selectedTab === 'history'
+                hoveredTab === 'history' || selectedTab === 'history' || selectedTab === 'environment'
                   ? '/assets/nav_btn_history_active.svg'
                   : '/assets/nav_btn_history_normal.svg'
               }
