@@ -1202,15 +1202,22 @@ export default function BasicPhilosophyPage({
             SECTION 3: DÒNG THỜI GIAN PHÁT TRIỂN (Figma Node 252:1081 / timeline-milestones)
             1440x900 Exact Match to Component Set 252:1031 (Property 1=Default / 171:245)
            =================================================================== */}
-        <section
+        <motion.section
           id="section-timeline"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{
+            duration: 2.0,
+            ease: [1, 0, 0, 1]
+          }}
           style={{
             position: 'relative',
             width: '100%',
             maxWidth: 1440,
             margin: '0 auto',
             boxSizing: 'border-box',
-            backgroundColor: '#FAF9F5',
+            backgroundColor: '#fdfcf7',
             padding: '64px 80px 72px 80px',
             overflow: 'hidden'
           }}
@@ -1421,8 +1428,19 @@ export default function BasicPhilosophyPage({
               ].map((m) => (
                 <motion.div
                   key={m.id}
-                  whileHover={{ y: m.isTop ? -6 : 6, scale: 1.03 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  initial={{ opacity: 0, y: m.isTop ? -25 : 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 2.0,
+                    ease: [1, 0, 0, 1],
+                    delay: 0.2 + m.id * 0.15
+                  }}
+                  whileHover={{
+                    y: m.isTop ? -8 : 8,
+                    scale: 1.04,
+                    transition: { duration: 0.4, ease: [1, 0, 0, 1] }
+                  }}
                   style={{
                     position: 'absolute',
                     left: m.left,
@@ -1555,7 +1573,7 @@ export default function BasicPhilosophyPage({
               Học thuyết Mác - Lênin
             </span>
           </div>
-        </section>
+        </motion.section>
 
         {/* ===================================================================
             SECTION 4: LIÊN HỆ THỰC TIỄN (Figma Node 298:2995 / Component 15)
@@ -2070,151 +2088,316 @@ export default function BasicPhilosophyPage({
         </section>
 
         {/* ===================================================================
-            SECTION 5: BỐI CẢNH TRIẾT HỌC (Figma Node 348:3519 / slide-triet-hoc-boi-canh)
-            1440x920 - 2x2 Editorial Spread
+            SECTION 5: BỐI CẢNH TRIẾT HỌC (Figma Node 348:3661 / Group 10 -> slide-triet-hoc-boi-canh 348:3519)
+            Exact 1440x920 Layout, Figma Palette (s1:#e7d3b8, s2:#b3954c, s3:#241c16, s4:#4a372c, s5:#fffcf7)
+            All 5 Accent Waves, 2x2 Editorial Spread with Cross Dividers, 4 Scene Cards (including Bùng nổ AI),
+            Seamless Bottom-Up Warm Glow Gradient, Smart Animate Prototype Transition (0.8s ease-out)
            =================================================================== */}
-        <section
+        <motion.section
           id="section-boi-canh"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.8, ease: [0, 0, 0.2, 1] }}
           style={{
             position: 'relative',
             width: '100%',
             maxWidth: 1440,
-            boxSizing: 'border-box',
-            backgroundColor: '#FAF9F5',
-            padding: '48px 72px 48px 72px',
             minHeight: 920,
-            overflow: 'hidden'
+            boxSizing: 'border-box',
+            background: 'linear-gradient(180deg, #fff6e5 0%, #fff1d6 20%, #ffeac4 45%, #ffe3ad 70%, #fedfa0 100%)',
+            padding: '36px 72px 28px 72px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            overflow: 'hidden',
+            marginBottom: 0
           }}
         >
-          {/* Header Block */}
-          <div style={{ maxWidth: 1296, margin: '0 auto', textAlign: 'center', marginBottom: 36 }}>
+          {/* Support legacy section-context ID */}
+          <div id="section-context" style={{ position: 'absolute', top: 0, left: 0 }} />
+
+          {/* 5 Accent Wave Curves from Figma (Node 348:3519) */}
+          <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 1 }}>
+            {/* 1. accent-wave-top-left (bounds: 620x320 at x: -80, y: -70, opacity: 0.85, stroke: #e7d3b8) */}
+            <svg
+              width="620"
+              height="320"
+              viewBox="0 0 620 320"
+              fill="none"
+              style={{ position: 'absolute', top: -70, left: -80, opacity: 0.85 }}
+            >
+              <path
+                d="M10 240 C140 100, 260 280, 420 160 C500 100, 560 60, 610 20"
+                stroke="#e7d3b8"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M0 270 C130 140, 240 300, 390 200 C470 140, 530 90, 580 50"
+                stroke="#e7d3b8"
+                strokeWidth="1"
+                strokeDasharray="4 6"
+                opacity="0.6"
+              />
+            </svg>
+
+            {/* 2. accent-wave-top-center (bounds: 430x220 at x: 520, y: -46, opacity: 0.72, stroke: #e7d3b8) */}
+            <svg
+              width="430"
+              height="220"
+              viewBox="0 0 430 220"
+              fill="none"
+              style={{ position: 'absolute', top: -46, left: 520, opacity: 0.72 }}
+            >
+              <path
+                d="M15 60 C110 150, 230 20, 330 90 C375 125, 405 145, 425 150"
+                stroke="#e7d3b8"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M40 90 C125 170, 245 50, 345 115 C385 145, 410 160, 425 165"
+                stroke="#e7d3b8"
+                strokeWidth="1"
+                strokeDasharray="3 5"
+                opacity="0.5"
+              />
+            </svg>
+
+            {/* 3. accent-wave-top-right (bounds: 560x260 at x: 1010, y: -24, opacity: 0.8, stroke: #e7d3b8) */}
+            <svg
+              width="560"
+              height="260"
+              viewBox="0 0 560 260"
+              fill="none"
+              style={{ position: 'absolute', top: -24, left: 1010, opacity: 0.8 }}
+            >
+              <path
+                d="M10 180 C140 70, 280 210, 420 80 C480 30, 520 25, 555 15"
+                stroke="#e7d3b8"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M50 220 C170 120, 300 240, 440 120 C495 70, 530 60, 555 50"
+                stroke="#e7d3b8"
+                strokeWidth="1"
+                strokeDasharray="4 6"
+                opacity="0.6"
+              />
+            </svg>
+
+            {/* 4. accent-wave-bottom-left (bounds: 520x240 at x: -40, y: 660, opacity: 0.68, stroke: #e7d3b8) */}
+            <svg
+              width="520"
+              height="240"
+              viewBox="0 0 520 240"
+              fill="none"
+              style={{ position: 'absolute', top: 660, left: -40, opacity: 0.68 }}
+            >
+              <path
+                d="M10 60 C130 170, 260 40, 390 130 C450 170, 485 195, 515 205"
+                stroke="#e7d3b8"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M30 90 C145 195, 275 75, 400 155 C455 190, 485 210, 515 220"
+                stroke="#e7d3b8"
+                strokeWidth="1"
+                strokeDasharray="4 6"
+                opacity="0.5"
+              />
+            </svg>
+
+            {/* 5. accent-wave-bottom-right (bounds: 520x220 at x: 980, y: 700, opacity: 0.72, stroke: #e7d3b8) */}
+            <svg
+              width="520"
+              height="220"
+              viewBox="0 0 520 220"
+              fill="none"
+              style={{ position: 'absolute', top: 700, left: 980, opacity: 0.72 }}
+            >
+              <path
+                d="M10 130 C120 40, 250 170, 370 80 C430 40, 470 55, 515 90"
+                stroke="#e7d3b8"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M35 160 C140 80, 265 195, 385 115 C440 80, 480 90, 515 120"
+                stroke="#e7d3b8"
+                strokeWidth="1"
+                strokeDasharray="3 5"
+                opacity="0.5"
+              />
+            </svg>
+          </div>
+
+          {/* Header Block (Node 348:3519;335:1241) */}
+          <div
+            style={{
+              position: 'relative',
+              width: 1296,
+              height: 188,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              gap: 12,
+              zIndex: 2,
+              boxSizing: 'border-box'
+            }}
+          >
+            {/* tractatus-label (s2: #b3954c) */}
             <span
               style={{
                 fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
                 fontSize: 12,
                 fontWeight: 700,
                 color: '#b3954c',
-                letterSpacing: '2.5px',
-                textTransform: 'uppercase'
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                lineHeight: 1.2
               }}
             >
               TRACTATUS ACADEMICA
             </span>
+
+            {/* title (s3: #241c16, 54px, bold) */}
             <h2
               style={{
                 fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                fontSize: 44,
+                fontSize: 54,
                 fontWeight: 700,
                 color: '#241c16',
                 letterSpacing: '-1px',
-                lineHeight: 1.15,
-                margin: '12px 0 10px 0'
+                lineHeight: 1.08,
+                margin: 0,
+                textAlign: 'center',
+                maxWidth: 1180
               }}
             >
               Những Bước Chuyển Bối Cảnh Thực Tế Của Sinh Viên
             </h2>
+
+            {/* subtitle (s4: #4a372c, 16px, 160%) */}
             <p
               style={{
                 fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
                 fontSize: 16,
-                fontStyle: 'italic',
+                fontWeight: 400,
                 color: '#4a372c',
-                opacity: 0.78,
-                margin: 0
+                opacity: 0.76,
+                letterSpacing: '1px',
+                lineHeight: 1.6,
+                margin: 0,
+                textAlign: 'center',
+                maxWidth: 860
               }}
             >
               "Đối chiếu hành vi và nhận thức dưới lăng kính của triết học cổ điển"
             </p>
           </div>
 
-          {/* 2x2 Editorial Spread Grid */}
+          {/* Editorial Spread (Node 348:3519;335:1245) - 1296x596 */}
           <div
             style={{
-              maxWidth: 1296,
-              margin: '0 auto',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-              gap: 24
+              position: 'relative',
+              width: 1296,
+              height: 596,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              zIndex: 2,
+              boxSizing: 'border-box'
             }}
           >
-            {[
-              {
-                id: 'socrates',
-                philosopher: 'Socrates - Triết học Hy Lạp Cổ đại',
-                title: 'THPT đến Đại học',
-                environment: 'Học tín chỉ, sống xa nhà.',
-                cognition: 'Tự chịu trách nhiệm bản thân.',
-                behavior: 'Lên thời khóa biểu, tự ra thư viện.'
-              },
-              {
-                id: 'aristotle',
-                philosopher: 'Aristotle - Triết học Duy vật & Khoa học',
-                title: 'Bùng nổ AI',
-                environment: 'Trợ lý giải đáp tức thì.',
-                cognition: 'Học thuộc không còn tác dụng.',
-                behavior: 'Đặt câu hỏi, phản biện, kiểm chứng.'
-              },
-              {
-                id: 'confucius',
-                philosopher: 'Confucius - Triết học Đông Á Cổ đại',
-                title: 'Nông thôn đến Đô thị',
-                environment: 'Nhịp sống nhanh, cạnh tranh cao.',
-                cognition: 'Thấy rõ áp lực kinh tế.',
-                behavior: 'Tiết kiệm, học thêm kỹ năng mềm.'
-              },
-              {
-                id: 'descartes',
-                philosopher: 'René Descartes - Triết học Baroque Pháp',
-                title: 'Trực tiếp đến Trực tuyến',
-                environment: 'Học qua màn hình tại nhà.',
-                cognition: 'Kỷ luật tự giác quyết định 90%.',
-                behavior: 'Tắt ứng dụng giải trí, chủ động hỏi bài.'
-              }
-            ].map((scene) => (
+            {/* Horizontal Divider (Node 348:3519;339:1160) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 298,
+                left: 0,
+                width: 1296,
+                height: 1,
+                backgroundColor: '#e7d3b8',
+                opacity: 0.9,
+                zIndex: 1
+              }}
+            />
+
+            {/* Vertical Divider (Node 348:3519;339:1161) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 648,
+                width: 1,
+                height: 596,
+                backgroundColor: '#e7d3b8',
+                opacity: 0.9,
+                zIndex: 1
+              }}
+            />
+
+            {/* Row Top (scene-1: Socrates, scene-2: Aristotle - Bùng nổ AI) */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', width: 1296, height: 286 }}>
+              {/* Scene 1: Socrates */}
               <motion.div
-                key={scene.id}
                 whileHover={{
                   y: -4,
-                  borderColor: '#c28c33',
-                  boxShadow: '0 12px 28px rgba(194, 140, 51, 0.12)'
+                  borderColor: '#b3954c',
+                  boxShadow: '0 16px 36px -8px rgba(179, 149, 76, 0.22)',
+                  backgroundColor: 'rgba(254, 243, 222, 0.85)'
                 }}
-                transition={{ duration: 0.25 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
                 style={{
-                  backgroundColor: '#fffcf7',
-                  borderRadius: 20,
+                  position: 'relative',
+                  width: 632,
+                  height: 286,
+                  padding: 24,
+                  boxSizing: 'border-box',
+                  backgroundColor: 'rgba(254, 243, 222, 0.6)',
+                  borderRadius: 24,
                   border: '1.5px solid #e7d3b8',
-                  padding: '24px 28px',
-                  boxShadow: '0 4px 18px rgba(0,0,0,0.03)',
+                  boxShadow: '0 8px 20px -10px rgba(0, 0, 0, 0.0392)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  boxSizing: 'border-box'
+                  zIndex: 2,
+                  cursor: 'default'
                 }}
               >
                 <div>
                   <span
                     style={{
                       fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                      fontSize: 11,
+                      fontSize: 10,
                       fontWeight: 700,
                       color: '#b3954c',
-                      letterSpacing: '1px',
-                      textTransform: 'uppercase'
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      marginBottom: 8
                     }}
                   >
-                    {scene.philosopher}
+                    Socrates - Triết học Hy Lạp Cổ đại
                   </span>
                   <h3
                     style={{
                       fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                      fontSize: 28,
+                      fontSize: 36,
                       fontWeight: 700,
                       color: '#241c16',
-                      letterSpacing: '-0.5px',
-                      margin: '6px 0 18px 0'
+                      letterSpacing: '-0.6px',
+                      lineHeight: 1.12,
+                      margin: '0 0 14px 0'
                     }}
                   >
-                    {scene.title}
+                    THPT đến Đại học
                   </h3>
                 </div>
 
@@ -2222,12 +2405,14 @@ export default function BasicPhilosophyPage({
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
                     <span
                       style={{
+                        width: 112,
+                        flexShrink: 0,
                         fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                        fontSize: 12,
+                        fontSize: 11,
                         fontWeight: 700,
                         color: '#241c16',
                         opacity: 0.72,
-                        minWidth: 90
+                        letterSpacing: '1px'
                       }}
                     >
                       Môi trường:
@@ -2236,23 +2421,27 @@ export default function BasicPhilosophyPage({
                       style={{
                         fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
                         fontSize: 15,
+                        fontWeight: 400,
                         color: '#241c16',
-                        opacity: 0.9
+                        opacity: 0.88,
+                        lineHeight: 1.55
                       }}
                     >
-                      {scene.environment}
+                      Học tín chỉ, sống xa nhà.
                     </span>
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
                     <span
                       style={{
+                        width: 112,
+                        flexShrink: 0,
                         fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                        fontSize: 12,
+                        fontSize: 11,
                         fontWeight: 700,
                         color: '#241c16',
                         opacity: 0.72,
-                        minWidth: 90
+                        letterSpacing: '1px'
                       }}
                     >
                       Nhận thức:
@@ -2261,23 +2450,27 @@ export default function BasicPhilosophyPage({
                       style={{
                         fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
                         fontSize: 15,
+                        fontWeight: 400,
                         color: '#241c16',
-                        opacity: 0.9
+                        opacity: 0.88,
+                        lineHeight: 1.55
                       }}
                     >
-                      {scene.cognition}
+                      Tự chịu trách nhiệm bản thân.
                     </span>
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
                     <span
                       style={{
+                        width: 112,
+                        flexShrink: 0,
                         fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                        fontSize: 12,
+                        fontSize: 11,
                         fontWeight: 700,
                         color: '#241c16',
                         opacity: 0.72,
-                        minWidth: 90
+                        letterSpacing: '1px'
                       }}
                     >
                       Hành vi:
@@ -2286,35 +2479,483 @@ export default function BasicPhilosophyPage({
                       style={{
                         fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
                         fontSize: 15,
+                        fontWeight: 400,
                         color: '#241c16',
-                        opacity: 0.9
+                        opacity: 0.88,
+                        lineHeight: 1.55
                       }}
                     >
-                      {scene.behavior}
+                      Lên thời khóa biểu, tự ra thư viện.
                     </span>
                   </div>
                 </div>
               </motion.div>
-            ))}
+
+              {/* Scene 2: Aristotle - BÙNG NỔ AI */}
+              <motion.div
+                whileHover={{
+                  y: -4,
+                  borderColor: '#b3954c',
+                  boxShadow: '0 16px 36px -8px rgba(179, 149, 76, 0.22)',
+                  backgroundColor: 'rgba(254, 243, 222, 0.85)'
+                }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                style={{
+                  position: 'relative',
+                  width: 632,
+                  height: 286,
+                  padding: 24,
+                  boxSizing: 'border-box',
+                  backgroundColor: 'rgba(254, 243, 222, 0.6)',
+                  borderRadius: 24,
+                  border: '1.5px solid #e7d3b8',
+                  boxShadow: '0 8px 20px -10px rgba(0, 0, 0, 0.0392)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  zIndex: 2,
+                  cursor: 'default'
+                }}
+              >
+                <div>
+                  <span
+                    style={{
+                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#b3954c',
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      marginBottom: 8
+                    }}
+                  >
+                    Aristotle - Triết học Duy vật & Khoa học
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontSize: 36,
+                      fontWeight: 700,
+                      color: '#241c16',
+                      letterSpacing: '-0.6px',
+                      lineHeight: 1.12,
+                      margin: '0 0 14px 0'
+                    }}
+                  >
+                    Bùng nổ AI
+                  </h3>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Môi trường:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Trợ lý giải đáp tức thì.
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Nhận thức:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Học thuộc không còn tác dụng.
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Hành vi:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Đặt câu hỏi, phản biện, kiểm chứng.
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Row Bottom (scene-3: Confucius, scene-4: René Descartes) */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', width: 1296, height: 286 }}>
+              {/* Scene 3: Confucius */}
+              <motion.div
+                whileHover={{
+                  y: -4,
+                  borderColor: '#b3954c',
+                  boxShadow: '0 16px 36px -8px rgba(179, 149, 76, 0.22)',
+                  backgroundColor: 'rgba(254, 243, 222, 0.85)'
+                }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                style={{
+                  position: 'relative',
+                  width: 632,
+                  height: 286,
+                  padding: 24,
+                  boxSizing: 'border-box',
+                  backgroundColor: 'rgba(254, 243, 222, 0.6)',
+                  borderRadius: 24,
+                  border: '1.5px solid #e7d3b8',
+                  boxShadow: '0 8px 20px -10px rgba(0, 0, 0, 0.0392)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  zIndex: 2,
+                  cursor: 'default'
+                }}
+              >
+                <div>
+                  <span
+                    style={{
+                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#b3954c',
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      marginBottom: 8
+                    }}
+                  >
+                    Confucius - Triết học Đông Á Cổ đại
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontSize: 36,
+                      fontWeight: 700,
+                      color: '#241c16',
+                      letterSpacing: '-0.6px',
+                      lineHeight: 1.12,
+                      margin: '0 0 14px 0'
+                    }}
+                  >
+                    Nông thôn đến Đô thị
+                  </h3>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Môi trường:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Nhịp sống nhanh, cạnh tranh cao.
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Nhận thức:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Thấy rõ áp lực kinh tế.
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Hành vi:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Tiết kiệm, học thêm kỹ năng mềm.
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Scene 4: René Descartes */}
+              <motion.div
+                whileHover={{
+                  y: -4,
+                  borderColor: '#b3954c',
+                  boxShadow: '0 16px 36px -8px rgba(179, 149, 76, 0.22)',
+                  backgroundColor: 'rgba(254, 243, 222, 0.85)'
+                }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                style={{
+                  position: 'relative',
+                  width: 632,
+                  height: 286,
+                  padding: 24,
+                  boxSizing: 'border-box',
+                  backgroundColor: 'rgba(254, 243, 222, 0.6)',
+                  borderRadius: 24,
+                  border: '1.5px solid #e7d3b8',
+                  boxShadow: '0 8px 20px -10px rgba(0, 0, 0, 0.0392)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  zIndex: 2,
+                  cursor: 'default'
+                }}
+              >
+                <div>
+                  <span
+                    style={{
+                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      color: '#b3954c',
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      marginBottom: 8
+                    }}
+                  >
+                    René Descartes - Triết học Baroque Pháp
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                      fontSize: 36,
+                      fontWeight: 700,
+                      color: '#241c16',
+                      letterSpacing: '-0.6px',
+                      lineHeight: 1.12,
+                      margin: '0 0 14px 0'
+                    }}
+                  >
+                    Trực tiếp đến Trực tuyến
+                  </h3>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Môi trường:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Học qua màn hình tại nhà.
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Nhận thức:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Kỷ luật tự giác quyết định 90%.
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+                    <span
+                      style={{
+                        width: 112,
+                        flexShrink: 0,
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: '#241c16',
+                        opacity: 0.72,
+                        letterSpacing: '1px'
+                      }}
+                    >
+                      Hành vi:
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: '#241c16',
+                        opacity: 0.88,
+                        lineHeight: 1.55
+                      }}
+                    >
+                      Tắt ứng dụng giải trí, chủ động hỏi bài.
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
 
-          {/* Slide Footer */}
+          {/* Slide Footer (Node 348:3519;335:1300) - 1296x36 */}
           <div
             style={{
-              maxWidth: 1296,
-              margin: '36px auto 0 auto',
+              width: 1296,
+              height: 36,
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              borderTop: '1px solid rgba(231, 211, 184, 0.5)',
-              paddingTop: 16
+              borderTop: '1px solid #e7d3b8',
+              paddingTop: 16,
+              boxSizing: 'border-box',
+              zIndex: 2
             }}
           >
             <span
               style={{
                 fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                fontSize: 12,
-                color: '#6e5b54'
+                fontSize: 11,
+                fontWeight: 400,
+                color: '#4a372c',
+                opacity: 0.56,
+                letterSpacing: '0.5px'
               }}
             >
               Biện chứng duy vật lịch sử • Đời sống hiện thực quyết định đời sống tinh thần
@@ -2322,15 +2963,17 @@ export default function BasicPhilosophyPage({
             <span
               style={{
                 fontFamily: "'Kantumruy Pro', 'Kantumruy', 'Work Sans', sans-serif",
-                fontSize: 12,
+                fontSize: 11,
                 fontWeight: 700,
-                color: '#b3954c'
+                color: '#241c16',
+                opacity: 0.72,
+                letterSpacing: '2px'
               }}
             >
               Scaffold Cohort V
             </span>
           </div>
-        </section>
+        </motion.section>
 
         {/* ===================================================================
             SECTION 6: CHÂN TRANG (Figma Node 298:3078 / Frame 10)
@@ -2343,7 +2986,7 @@ export default function BasicPhilosophyPage({
             width: '100%',
             maxWidth: 1440,
             boxSizing: 'border-box',
-            backgroundColor: '#ffecc3',
+            background: 'linear-gradient(180deg, #ffecc3 0%, #ffe7b0 50%, #fedfa0 100%)',
             minHeight: 300,
             overflow: 'hidden',
             padding: '40px 80px',

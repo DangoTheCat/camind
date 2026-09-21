@@ -72,18 +72,16 @@ export default function FigmaOpenHeader({
         overflow: 'visible'
       }}
     >
-      {/* 100% Authentic Figma Torn Paper Header Background exported from Node 94:495 / Frame 8 */}
-      <img
-        src="/assets/figma_header_bg_clean.png"
-        alt=""
+      {/* Figma Selection 252:639 Frame 8 Background */}
+      <div
         style={{
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
-          height: 84,
-          objectFit: 'fill',
-          display: 'block',
+          height: '100%',
+          background: 'linear-gradient(180deg, #ffb200 0%, #b3b600 100%)',
+          borderBottom: '3px solid #ffffff',
           pointerEvents: 'none',
           userSelect: 'none',
           zIndex: 1
@@ -139,15 +137,18 @@ export default function FigmaOpenHeader({
             style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
             title="1. Giới thiệu"
           >
-            <img
-              src={
-                hoveredTab === 'intro' || selectedTab === 'intro'
-                  ? '/assets/nav_btn_intro_active.svg'
-                  : '/assets/nav_btn_intro_normal.svg'
-              }
-              alt="Giới thiệu"
-              style={{ height: 29, width: 'auto', display: 'block' }}
-            />
+            <div style={{
+              fontFamily: '"Kantumruy", sans-serif',
+              fontSize: 16,
+              fontWeight: 700,
+              color: '#ffffff',
+              position: 'relative'
+            }}>
+              Giới thiệu
+              {(hoveredTab === 'intro' || selectedTab === 'intro') && (
+                <div style={{ position: 'absolute', bottom: -4, left: 0, right: 0, height: 2, background: '#ffffff' }} />
+              )}
+            </div>
           </motion.div>
 
           {/* 2. Triết học cơ bản */}
@@ -160,15 +161,18 @@ export default function FigmaOpenHeader({
             style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
             title="2. Triết học cơ bản"
           >
-            <img
-              src={
-                hoveredTab === 'theory' || selectedTab === 'theory'
-                  ? '/assets/nav_btn_theory_active.svg'
-                  : '/assets/nav_btn_theory_normal.svg'
-              }
-              alt="Triết học cơ bản"
-              style={{ height: 29, width: 'auto', display: 'block' }}
-            />
+            <div style={{
+              fontFamily: '"Kantumruy", sans-serif',
+              fontSize: 16,
+              fontWeight: 700,
+              color: '#ffffff',
+              position: 'relative'
+            }}>
+              Triết học cơ bản
+              {(hoveredTab === 'theory' || selectedTab === 'theory') && (
+                <div style={{ position: 'absolute', bottom: -4, left: 0, right: 0, height: 2, background: '#ffffff' }} />
+              )}
+            </div>
           </motion.div>
 
           {/* 3. Điều kiện và môi trường */}
@@ -181,15 +185,18 @@ export default function FigmaOpenHeader({
             style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
             title="3. Điều kiện và môi trường"
           >
-            <img
-              src={
-                hoveredTab === 'history' || selectedTab === 'history'
-                  ? '/assets/nav_btn_history_active.svg'
-                  : '/assets/nav_btn_history_normal.svg'
-              }
-              alt="Điều kiện và môi trường"
-              style={{ height: 29, width: 'auto', display: 'block' }}
-            />
+            <div style={{
+              fontFamily: '"Kantumruy", sans-serif',
+              fontSize: 16,
+              fontWeight: 700,
+              color: '#ffffff',
+              position: 'relative'
+            }}>
+              Điều kiện và môi trường
+              {(hoveredTab === 'history' || selectedTab === 'history') && (
+                <div style={{ position: 'absolute', bottom: -4, left: 0, right: 0, height: 2, background: '#ffffff' }} />
+              )}
+            </div>
           </motion.div>
 
           {/* 4. Ảnh hưởng */}
@@ -202,15 +209,18 @@ export default function FigmaOpenHeader({
             style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
             title="4. Ảnh hưởng"
           >
-            <img
-              src={
-                hoveredTab === 'influence' || selectedTab === 'influence'
-                  ? '/assets/nav_btn_compare_active.svg'
-                  : '/assets/nav_btn_compare_normal.svg'
-              }
-              alt="Ảnh hưởng"
-              style={{ height: 29, width: 'auto', display: 'block' }}
-            />
+            <div style={{
+              fontFamily: '"Kantumruy", sans-serif',
+              fontSize: 16,
+              fontWeight: 700,
+              color: '#ffffff',
+              position: 'relative'
+            }}>
+              Ảnh hưởng
+              {(hoveredTab === 'influence' || selectedTab === 'influence') && (
+                <div style={{ position: 'absolute', bottom: -4, left: 0, right: 0, height: 2, background: '#ffffff' }} />
+              )}
+            </div>
           </motion.div>
         </nav>
 
@@ -245,22 +255,28 @@ export default function FigmaOpenHeader({
             }}
             title="Gửi Feedback"
           >
-            <img
-              src={
-                isFeedbackPressed
-                  ? '/assets/feedback_active.svg'
-                  : isFeedbackHovered
-                  ? '/assets/feedback_hover.svg'
-                  : '/assets/feedback_default.svg'
-              }
-              alt="Feedback"
-              style={{
-                width: isFeedbackPressed ? 138 : 130,
-                height: isFeedbackPressed ? 43 : 36,
-                display: 'block',
-                transition: 'all 0.15s ease'
-              }}
-            />
+            <div style={{
+              background: 'linear-gradient(90deg, #2f2f2f 0%, #000000 100%)',
+              borderRadius: 60,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 130,
+              height: 36,
+              boxShadow: isFeedbackHovered ? '0 0 10px rgba(255, 234, 0, 0.5)' : 'none',
+              transform: isFeedbackPressed ? 'scale(0.95)' : 'scale(1)',
+              transition: 'all 0.2s ease'
+            }}>
+              <span style={{
+                fontFamily: '"Kantumruy", sans-serif',
+                fontSize: 16,
+                fontWeight: 700,
+                color: '#ffea00',
+                lineHeight: 1
+              }}>
+                Feedback
+              </span>
+            </div>
           </motion.button>
 
           {/* Logo Controller chuẩn Figma Component Set 35:509:
