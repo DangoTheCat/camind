@@ -1224,3 +1224,62 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   CAMIND MINI-GAME STYLES
+   ========================================================================== */
+
+.camind-game-page {
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+}
+
+.game-board-outer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0;
+}
+
+.game-board-responsive-container {
+  min-width: 580px;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  box-shadow: 0 16px 40px rgba(20, 60, 30, 0.22), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .game-hud-bar {
+    padding: 10px 14px !important;
+    gap: 10px !important;
+  }
+  
+  .game-hud-bar > div {
+    gap: 8px !important;
+  }
+
+  .question-modal-card,
+  .victory-modal-card,
+  .defeat-modal-card {
+    padding: 20px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .defeat-modal-card > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-hud-bar {
+    border-radius: 16px !important;
+  }
+  
+  .game-hud-bar button {
+    padding: 6px 10px !important;
+    font-size: 0.78rem !important;
+  }
+}
+
