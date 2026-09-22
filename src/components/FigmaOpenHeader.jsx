@@ -41,7 +41,7 @@ export default function FigmaOpenHeader({
 
   const handleControllerClick = () => {
     if (onControllerClick) {
-      onControllerClick(!isControllerActive)
+      onControllerClick(!controlledControllerActive)
     }
   }
 
@@ -282,7 +282,7 @@ export default function FigmaOpenHeader({
           >
             <img
               src={
-                isControllerHovered
+                isControllerHovered || controlledControllerActive
                   ? '/assets/ps_controller_active.svg'
                   : '/assets/ps_controller_default.svg'
               }

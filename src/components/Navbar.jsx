@@ -105,8 +105,13 @@ export default function Navbar({
   }
 
   const handleToggleSound = () => {
-    if (onToggleSound) onToggleSound()
-    if (onControllerClick) onControllerClick(!isSoundOn)
+    if (onControllerClick) {
+      onControllerClick(!isSoundOn)
+    } else if (onNavClick) {
+      onNavClick('game')
+    } else if (onToggleSound) {
+      onToggleSound()
+    }
     setIsMobileMenuOpen(false)
   }
 
@@ -179,8 +184,8 @@ export default function Navbar({
             type="button"
             onClick={handleToggleSound}
             className={`btn-sound-controller ${isSoundOn ? 'sound-on' : 'sound-off'}`}
-            title={isSoundOn ? 'Tắt âm thanh hiệu ứng' : 'Bật âm thanh hiệu ứng'}
-            aria-label={isSoundOn ? 'Tắt âm thanh hiệu ứng' : 'Bật âm thanh hiệu ứng'}
+            title="Chơi mini-game Camind"
+            aria-label="Chơi mini-game Camind"
           >
             <Gamepad2 size={18} />
           </button>
@@ -303,11 +308,11 @@ export default function Navbar({
             type="button"
             onClick={handleToggleSound}
             className={`mobile-action-btn mobile-btn-sound ${isSoundOn ? 'sound-on' : 'sound-off'}`}
-            title={isSoundOn ? 'Tắt âm thanh hiệu ứng' : 'Bật âm thanh hiệu ứng'}
-            aria-label={isSoundOn ? 'Tắt âm thanh hiệu ứng' : 'Bật âm thanh hiệu ứng'}
+            title="Chơi mini-game Camind"
+            aria-label="Chơi mini-game Camind"
           >
             <Gamepad2 size={18} />
-            <span>{isSoundOn ? 'Âm thanh: Bật' : 'Âm thanh: Tắt'}</span>
+            <span>Mini-game Camind</span>
           </button>
         </div>
       </div>
