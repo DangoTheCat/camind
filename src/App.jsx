@@ -7,10 +7,20 @@ import InfluencePage from './components/InfluencePage'
 import ConclusionPage from './components/ConclusionPage'
 
 export default function App() {
+  // URL tab query support for direct navigation
+  const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+  const initialTab = urlParams?.get('tab') || null
+  const initialScreen = initialTab === 'theory' ? 'theory'
+    : initialTab === 'environment' || initialTab === 'history' ? 'environment'
+    : initialTab === 'influence' ? 'influence'
+    : initialTab === 'conclusion' ? 'conclusion'
+    : initialTab === 'intro' ? 'wireframe2'
+    : 'open'
+
   // Screen state: 'open' | 'wireframe2' | 'theory' | 'environment' | 'influence' | 'conclusion'
-  const [currentScreen, setCurrentScreen] = useState('open')
+  const [currentScreen, setCurrentScreen] = useState(initialScreen)
   // Active nav tab: default null -> all 4 tabs render WHITE
-  const [activeTab, setActiveTab] = useState(null)
+  const [activeTab, setActiveTab] = useState(initialTab)
   // Active controller state: default false (white background, black icon)
   // When clicked: true (dark gold gradient #000000 -> #AD9000, white icon)
   const [isControllerActive, setIsControllerActive] = useState(false)

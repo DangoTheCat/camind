@@ -186,23 +186,23 @@ export default function EnvironmentConditionPage({
         <motion.button
           onClick={scrollToContent}
           whileHover={{
-            scale: 1.08,
+            scale: 1.05,
             backgroundColor: 'rgba(115, 89, 64, 0.08)',
-            boxShadow: '0 4px 16px rgba(115, 89, 64, 0.12)'
+            boxShadow: '0 4px 16px rgba(115, 89, 64, 0.10)'
           }}
           whileTap={{ scale: 0.95 }}
           style={{
             position: 'absolute',
-            top: '89.1%',
+            top: '88.8%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 110,
-            height: 60,
+            width: 100,
+            height: 52,
             background: 'transparent',
             border: 'none',
             cursor: 'pointer',
             outline: 'none',
-            borderRadius: 16,
+            borderRadius: 12,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
