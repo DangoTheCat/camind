@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import CharacterChibi from './CharacterChibi'
 import DiceComponent from './DiceComponent'
@@ -19,27 +19,55 @@ export default function GameBoard({
   onCellClick
 }) {
   const currentCell = BOARD_CELLS.find((c) => c.id === currentCellId) || BOARD_CELLS[0]
+  const boardContainerRef = useRef(null)
+  const [boardWidth, setBoardWidth] = useState(1440)
+
+  useEffect(() => {
+    if (!boardContainerRef.current) return
+    const updateSize = () => {
+      if (boardContainerRef.current) {
+        setBoardWidth(boardContainerRef.current.clientWidth || 1440)
+      }
+    }
+    updateSize()
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width) {
+          setBoardWidth(entry.contentRect.width)
+        }
+      }
+    })
+    ro.observe(boardContainerRef.current)
+    return () => ro.disconnect()
+  }, [])
+
+  // Proportional scale factor matching the student illustration on Cell 01:
+  // At 1672px board width: target height ~116px (46% of 252px)
+  const chibiScale = Math.max(0.18, (boardWidth / 1672) * 0.46)
 
   return (
     <div
       className="game-board-outer"
       style={{
         width: '100%',
-        maxWidth: 1440,
-        margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        position: 'relative'
+        justifyContent: 'center',
+        position: 'relative',
+        padding: '4px 12px 14px'
       }}
     >
       {/* 1672x941 Responsive Board Container */}
       <div
+        ref={boardContainerRef}
         className="game-board-responsive-container"
         style={{
           position: 'relative',
           width: '100%',
+          maxWidth: 'min(1380px, calc((100vh - 165px) * (1672 / 941)))', 
           aspectRatio: '1672 / 941',
+          margin: '0 auto',
           borderRadius: 24,
           overflow: 'hidden',
           boxShadow: '0 20px 50px rgba(0, 40, 20, 0.22), 0 4px 12px rgba(0,0,0,0.1)',
@@ -117,6 +145,7 @@ export default function GameBoard({
           isMoving={isMoving}
           isJumping={isJumping}
           direction={facingDirection}
+          scale={chibiScale}
         />
 
         {/* Center Interactive Dice */}

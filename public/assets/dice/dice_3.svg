@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <radialGradient id="d3_groundShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a354d" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#2a354d" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#2a354d" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="d3_topGrad" x1="25%" y1="0%" x2="75%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="45%" stop-color="#fff8f2" />
+      <stop offset="100%" stop-color="#f5e8dc" />
+    </linearGradient>
+
+    <linearGradient id="d3_leftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#edf2fc" />
+      <stop offset="100%" stop-color="#d2def2" />
+    </linearGradient>
+
+    <linearGradient id="d3_rightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcedeb" />
+      <stop offset="100%" stop-color="#edd2ce" />
+    </linearGradient>
+
+    <radialGradient id="d3_pipRed" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ff758f" />
+      <stop offset="55%" stop-color="#ff477e" />
+      <stop offset="100%" stop-color="#c9184a" />
+    </radialGradient>
+
+    <radialGradient id="d3_pipIndigo" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#4a5f8a" />
+      <stop offset="55%" stop-color="#2d3b59" />
+      <stop offset="100%" stop-color="#182236" />
+    </radialGradient>
+
+    <filter id="d3_bevelGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#718096" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <ellipse cx="128" cy="226" rx="84" ry="20" fill="url(#d3_groundShadow)" />
+
+  <g filter="url(#d3_bevelGlow)">
+    <path d="M 128,42 L 204,84 L 204,172 L 128,214 L 52,172 L 52,84 Z"
+          fill="#d8e2f0" stroke="#cbd5e1" stroke-width="6" stroke-linejoin="round" />
+    <path d="M 52,84 L 128,126 L 128,214 L 52,172 Z"
+          fill="url(#d3_leftGrad)" stroke="#c2d0e6" stroke-width="1.5" stroke-linejoin="round" />
+    <path d="M 128,126 L 204,84 L 204,172 L 128,214 Z"
+          fill="url(#d3_rightGrad)" stroke="#dec2bc" stroke-width="1.5" stroke-linejoin="round" />
+    <path d="M 128,42 L 204,84 L 128,126 L 52,84 Z"
+          fill="url(#d3_topGrad)" stroke="#e2e8f0" stroke-width="1.5" stroke-linejoin="round" />
+  </g>
+
+  <path d="M 128,126 L 128,213" stroke="#b8c6dc" stroke-width="2.2" stroke-linecap="round" />
+  <path d="M 128,126 L 53,84" stroke="#cbd7eb" stroke-width="2" stroke-linecap="round" />
+  <path d="M 128,126 L 203,84" stroke="#d9c7c2" stroke-width="2" stroke-linecap="round" />
+  <path d="M 54,84 L 128,43 L 202,84" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.85" />
+
+  <!-- ================= TOP FACE: 3 PIPS ================= -->
+  <g id="top_pips">
+    <!-- Pip 1 -->
+    <ellipse cx="108" cy="74" rx="11.5" ry="6.5" fill="url(#d3_pipIndigo)" />
+    <ellipse cx="106" cy="72.5" rx="3.5" ry="1.8" fill="#ffffff" opacity="0.7" />
+
+    <!-- Pip 2 (Center) -->
+    <ellipse cx="128" cy="85" rx="11.5" ry="6.5" fill="url(#d3_pipIndigo)" />
+    <ellipse cx="126" cy="83.5" rx="3.5" ry="1.8" fill="#ffffff" opacity="0.7" />
+
+    <!-- Pip 3 -->
+    <ellipse cx="148" cy="96" rx="11.5" ry="6.5" fill="url(#d3_pipIndigo)" />
+    <ellipse cx="146" cy="94.5" rx="3.5" ry="1.8" fill="#ffffff" opacity="0.7" />
+  </g>
+
+  <!-- ================= LEFT FACE: 1 PIP (Cherry Coral Red) ================= -->
+  <g transform="translate(90, 149) rotate(-30)">
+    <ellipse cx="0" cy="0" rx="13" ry="18" fill="url(#d3_pipRed)" />
+    <ellipse cx="-3" cy="-4" rx="4" ry="5.5" fill="#ffffff" opacity="0.75" />
+  </g>
+
+  <!-- ================= RIGHT FACE: 2 PIPS ================= -->
+  <g id="right_pips">
+    <g transform="translate(150, 134) rotate(30)">
+      <ellipse cx="0" cy="0" rx="8" ry="12" fill="url(#d3_pipIndigo)" />
+      <ellipse cx="-2" cy="-3" rx="2.5" ry="3.5" fill="#ffffff" opacity="0.65" />
+    </g>
+    <g transform="translate(182, 164) rotate(30)">
+      <ellipse cx="0" cy="0" rx="8" ry="12" fill="url(#d3_pipIndigo)" />
+      <ellipse cx="-2" cy="-3" rx="2.5" ry="3.5" fill="#ffffff" opacity="0.65" />
+    </g>
+  </g>
+</svg>

@@ -6,116 +6,78 @@ export default function CharacterChibi({
   y = 25.50,
   isMoving = false,
   isJumping = false,
-  direction = 'right'
+  direction = 'right',
+  scale = 0.42
 }) {
   const isFacingLeft = direction === 'left'
 
   return (
     <motion.div
-      className="character-chibi-container"
+      className={`character-chibi-container ${isMoving ? 'chibi-walking' : 'chibi-idle'}`}
       initial={false}
       animate={{
         left: `${x}%`,
         top: `${y}%`
       }}
       transition={{
-        duration: isMoving ? 0.28 : 0.4,
+        duration: isMoving ? 0.36 : 0.4,
         ease: 'easeInOut'
       }}
       style={{
         position: 'absolute',
-        width: '9.2%',
-        maxWidth: 154,
-        minWidth: 'clamp(28px, 4vw, 64px)',
-        aspectRatio: '1 / 1',
-        transform: 'translate(-50%, -78%)',
+        width: 0,
+        height: 0,
         zIndex: 40,
-        pointerEvents: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-end'
+        pointerEvents: 'none'
       }}
     >
-      {/* Dynamic Student Character with idle & jumping bounce */}
+      {/* Landing hop bounce motion wrapper (only animates Y bounce, NEVER scales or translates X) */}
       <motion.div
-        animate={
-          isJumping
-            ? {
-                y: [0, -32, 0],
-                scale: [1, 1.08, 0.96, 1]
-              }
-            : {
-                y: [0, -7, 0],
-                scale: [1, 1.01, 1]
-              }
-        }
-        transition={
-          isJumping
-            ? {
-                duration: 0.28,
-                ease: 'easeInOut'
-              }
-            : {
-                repeat: Infinity,
-                duration: 1.6,
-                ease: 'easeInOut'
-              }
-        }
+        animate={isJumping ? { y: [0, -14, 0] } : { y: 0 }}
+        transition={isJumping ? { duration: 0.26, ease: 'easeInOut' } : { duration: 0.2 }}
         style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          transform: isFacingLeft ? 'scaleX(-1)' : 'scaleX(1)',
-          filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25))'
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: 0,
+          height: 0
         }}
       >
-        <img
-          src="/assets/game/character.png"
-          alt="Sinh viên Camind"
+        {/* Anchor point: (50%, 97%) of 140x252 is pinned precisely to the (x, y) target */}
+        <div
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            display: 'block',
-            userSelect: 'none',
-            WebkitUserDrag: 'none'
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            transform: 'translate(-50%, -97%)'
           }}
-          onError={(e) => {
-            // Fallback to jpg if png fails
-            e.currentTarget.src = '/assets/game/character.jpg'
-          }}
-        />
-      </motion.div>
+        >
+          {/* Scaling & Facing Direction: scales and flips cleanly around the feet */}
+          <div
+            style={{
+              transform: `scale(${scale}) scaleX(${isFacingLeft ? -1 : 1})`,
+              transformOrigin: '50% 97%',
+              filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.28))'
+            }}
+          >
+            {/* Exact Character Wrapper Structure from HTML */}
+            <div className={`character-wrapper ${isMoving ? '' : 'paused'}`}>
+              {/* Ground shadow beneath character feet */}
+              <div className="ground-shadow" />
 
-      {/* Realistic Shadow beneath character feet */}
-      <motion.div
-        animate={
-          isJumping
-            ? {
-                scale: [1, 0.55, 1],
-                opacity: [0.5, 0.2, 0.5]
-              }
-            : {
-                scale: [1, 0.9, 1],
-                opacity: [0.5, 0.38, 0.5]
-              }
-        }
-        transition={
-          isJumping
-            ? { duration: 0.28, ease: 'easeInOut' }
-            : { repeat: Infinity, duration: 1.6, ease: 'easeInOut' }
-        }
-        style={{
-          width: '55%',
-          height: '10%',
-          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 70%)',
-          borderRadius: '50%',
-          marginTop: -6
-        }}
-      />
+              {/* CHẾ ĐỘ 1: SPRITE 8 FRAME FIGMA (HD RETINA 3X, 0% DÍNH VIỀN) */}
+              <div
+                className="sprite-character"
+                style={{
+                  animationPlayState: isMoving ? 'running' : 'paused',
+                  backgroundPosition: isMoving ? undefined : '0px 0px'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </motion.div>
   )
 }
+

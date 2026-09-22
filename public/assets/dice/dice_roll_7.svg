@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <radialGradient id="r7_shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2a354d" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#2a354d" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#2a354d" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="r7_f1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#fff6ee" />
+      <stop offset="100%" stop-color="#f2dfd0" />
+    </linearGradient>
+
+    <linearGradient id="r7_f2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#edf4fc" />
+      <stop offset="100%" stop-color="#cbd8ee" />
+    </linearGradient>
+
+    <linearGradient id="r7_f3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faece8" />
+      <stop offset="100%" stop-color="#e3c2bb" />
+    </linearGradient>
+
+    <radialGradient id="r7_impact" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#facc15" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#eab308" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="r7_pipIndigo" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#4a5f8a" />
+      <stop offset="60%" stop-color="#2d3b59" />
+      <stop offset="100%" stop-color="#182236" />
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="128" cy="226" rx="82" ry="20" fill="url(#r7_shadow)" />
+
+  <ellipse cx="128" cy="224" rx="35" ry="10" fill="url(#r7_impact)" />
+
+  <path d="M 68,218 L 73,212 L 79,217 L 74,222 Z" fill="#fde047" opacity="0.9" />
+  <path d="M 186,216 L 192,210 L 197,216 L 191,221 Z" fill="#fde047" opacity="0.9" />
+  <circle cx="62" cy="224" r="3" fill="#cbd5e1" opacity="0.5" />
+  <circle cx="196" cy="224" r="3" fill="#cbd5e1" opacity="0.5" />
+
+  <g transform="translate(128, 126) rotate(290) scale(1.02, 0.96) translate(-128, -126)">
+    <path d="M 128,42 L 204,84 L 204,172 L 128,214 L 52,172 L 52,84 Z"
+          fill="#d8e2f0" stroke="#cbd5e1" stroke-width="6" stroke-linejoin="round" />
+
+    <path d="M 52,84 L 128,126 L 128,214 L 52,172 Z"
+          fill="url(#r7_f2)" stroke="#c2d0e6" stroke-width="1.5" stroke-linejoin="round" />
+    <path d="M 128,126 L 204,84 L 204,172 L 128,214 Z"
+          fill="url(#r7_f3)" stroke="#dec2bc" stroke-width="1.5" stroke-linejoin="round" />
+    <path d="M 128,42 L 204,84 L 128,126 L 52,84 Z"
+          fill="url(#r7_f1)" stroke="#e2e8f0" stroke-width="1.5" stroke-linejoin="round" />
+
+    <path d="M 128,126 L 128,213" stroke="#b8c6dc" stroke-width="2.2" stroke-linecap="round" />
+    <path d="M 54,84 L 128,43 L 202,84" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.85" />
+
+    <ellipse cx="108" cy="74" rx="11" ry="6.2" fill="url(#r7_pipIndigo)" />
+    <ellipse cx="148" cy="96" rx="11" ry="6.2" fill="url(#r7_pipIndigo)" />
+
+    <g transform="translate(90, 149) rotate(-30)">
+      <ellipse cx="-16" cy="-16" rx="7.5" ry="11" fill="url(#r7_pipIndigo)" />
+      <ellipse cx="0" cy="0" rx="7.5" ry="11" fill="url(#r7_pipIndigo)" />
+      <ellipse cx="16" cy="16" rx="7.5" ry="11" fill="url(#r7_pipIndigo)" />
+    </g>
+
+    <g transform="translate(166, 149) rotate(30)">
+      <ellipse cx="0" cy="0" rx="7.5" ry="11" fill="url(#r7_pipIndigo)" />
+      <ellipse cx="-18" cy="-18" rx="6.5" ry="9" fill="url(#r7_pipIndigo)" />
+      <ellipse cx="18" cy="18" rx="6.5" ry="9" fill="url(#r7_pipIndigo)" />
+      <ellipse cx="-18" cy="18" rx="6.5" ry="9" fill="url(#r7_pipIndigo)" />
+      <ellipse cx="18" cy="-18" rx="6.5" ry="9" fill="url(#r7_pipIndigo)" />
+    </g>
+  </g>
+</svg>

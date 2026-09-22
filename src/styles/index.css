@@ -1276,10 +1276,124 @@ html, body {
   .game-hud-bar {
     border-radius: 16px !important;
   }
-  
   .game-hud-bar button {
     padding: 6px 10px !important;
     font-size: 0.78rem !important;
   }
 }
+
+/* ==========================================================================
+   FIGMA 8-FRAME SPRITE WALKING ANIMATION (EXACT HTML SPECIFICATION)
+   ========================================================================== */
+
+:root {
+  --chibi-step-duration: 0.36s;
+}
+
+.character-chibi-container {
+  will-change: left, top;
+}
+
+.character-wrapper {
+  position: relative;
+  width: 140px;
+  height: 252px;
+  will-change: transform;
+}
+
+/* Ground shadow beneath feet from HTML */
+.ground-shadow {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 80px;
+  height: 14px;
+  margin-left: -40px;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0) 70%);
+  border-radius: 50%;
+  animation: shadowPulse var(--chibi-step-duration, 0.36s) ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 50%, 100% { transform: scale(1); opacity: 0.45; }
+  25%, 75%      { transform: scale(0.82); opacity: 0.22; }
+}
+
+/* CHẾ ĐỘ 1: SPRITE 8 FRAME FIGMA (HD RETINA 3X, 0% DÍNH VIỀN) */
+.sprite-character {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  margin-left: -70px;
+  width: 140px;
+  height: 252px;
+  background-image: url('/assets/game/chibi_sprite_8frames.png');
+  background-size: 1120px 252px;
+  background-repeat: no-repeat;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  animation: spriteWalkCycle var(--chibi-step-duration, 0.36s) steps(8) infinite;
+}
+
+@keyframes spriteWalkCycle {
+  from { background-position: 0px 0px; }
+  to   { background-position: -1120px 0px; }
+}
+
+.character-wrapper.paused * {
+  animation-play-state: paused !important;
+}
+
+.character-wrapper.paused .ground-shadow {
+  animation-play-state: paused !important;
+  opacity: 0.35 !important;
+  transform: scale(1) !important;
+}
+
+/* ==========================================================================
+   VINTAGE PARCHMENT DEFEAT MODAL & RAIN EFFECT
+   ========================================================================== */
+
+.defeat-rain-backdrop {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.defeat-rain-backdrop .rain-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.28) 75%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(186, 230, 253, 0.22) 80%, rgba(255, 255, 255, 0) 100%);
+  background-size: 2px 30px, 1.5px 40px;
+  background-repeat: repeat;
+  animation: rainFalling 0.65s linear infinite;
+  opacity: 0.75;
+}
+
+@keyframes rainFalling {
+  0% {
+    background-position: 0px 0px, 60px 0px;
+  }
+  100% {
+    background-position: -30px 300px, 30px 380px;
+  }
+}
+
+.defeat-vintage-parchment-card::-webkit-scrollbar {
+  width: 6px;
+}
+.defeat-vintage-parchment-card::-webkit-scrollbar-thumb {
+  background: #C4B197;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .defeat-vintage-parchment-card > div[style*="grid-template-columns: 270px 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 

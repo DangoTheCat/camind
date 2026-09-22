@@ -205,13 +205,10 @@ export default function CamindGame({
         setFacingDirection(stepDir)
         setCharacterPos({ x: cellData.x, y: cellData.y })
         setCurrentCellId(curr)
-        setIsJumping(true)
         playSound('step')
 
-        await new Promise((resolve) => setTimeout(resolve, 140))
+        await new Promise((resolve) => setTimeout(resolve, 360))
         if (!isMountedRef.current || moveSeq !== moveSeqRef.current) return endId
-        setIsJumping(false)
-        await new Promise((resolve) => setTimeout(resolve, 140))
       }
     }
 
@@ -219,6 +216,12 @@ export default function CamindGame({
       // Re-orient to cell default facing direction upon stopping
       setFacingDirection(getDirectionForCell(endId))
       setIsMoving(false)
+      // Cheerful destination landing hop
+      setIsJumping(true)
+      await new Promise((resolve) => setTimeout(resolve, 260))
+      if (isMountedRef.current && moveSeq === moveSeqRef.current) {
+        setIsJumping(false)
+      }
     }
     return endId
   }, [playSound])
