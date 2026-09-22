@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import FigmaOpenHeader from './FigmaOpenHeader'
 import FeedbackModal from './FeedbackModal'
@@ -136,6 +136,8 @@ export default function BasicPhilosophyPage({
   // Hover states for Section 2 (Cơ sở lý luận) & Section 3 (Timeline)
   const [hoveredTheoryCard, setHoveredTheoryCard] = useState(null)
   const [hoveredMilestone, setHoveredMilestone] = useState(null)
+  const scrollContainerRef = useRef(null)
+
   // Ensure body scroll and background color are enabled for Page 2
   useEffect(() => {
     document.body.style.overflow = 'auto'
@@ -155,8 +157,38 @@ export default function BasicPhilosophyPage({
     }
   }
 
+  const scrollToBottom = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+    const footerEl = document.getElementById('section-footer')
+    if (footerEl) {
+      footerEl.scrollIntoView({ behavior: 'smooth' })
+    }
+    window.scrollTo({
+      top: document.documentElement.scrollHeight || document.body.scrollHeight,
+      behavior: 'smooth'
+    })
+    document.documentElement.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    })
+    document.body.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    })
+  }
+
   const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
+    document.body.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const lienHeSlides = [
@@ -173,12 +205,14 @@ export default function BasicPhilosophyPage({
 
   return (
     <div
+      ref={scrollContainerRef}
       style={{
         position: 'relative',
         width: '100%',
-        minHeight: '100vh',
-        backgroundColor: '#FAF9F5',
+        height: '100vh',
+        overflowY: 'auto',
         overflowX: 'hidden',
+        backgroundColor: '#FAF9F5',
         userSelect: 'none',
         fontFamily: "'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
       }}
@@ -925,10 +959,11 @@ export default function BasicPhilosophyPage({
             transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToSection('section-co-so')}
+            onClick={scrollToBottom}
             style={{
               position: 'absolute',
-              left: 696,
+              left: '50%',
+              transform: 'translateX(-50%)',
               bottom: 16,
               display: 'flex',
               flexDirection: 'column',
@@ -938,7 +973,7 @@ export default function BasicPhilosophyPage({
               padding: '8px 12px',
               userSelect: 'none'
             }}
-            title="Cuộn xuống xem tiếp nội dung (ROLL TO)"
+            title="Cuộn xuống dưới cùng (ROLL TO)"
           >
             {/* Text on top */}
             <span
