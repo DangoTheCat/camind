@@ -21,7 +21,6 @@ import {
   Info
 } from 'lucide-react'
 import FigmaOpenHeader from './FigmaOpenHeader'
-import FeedbackModal from './FeedbackModal'
 
 /**
  * Figma Component: ref-item-01 to ref-item-09 (Component Sets 408:1494 - 408:1812)
@@ -324,7 +323,6 @@ export default function ConclusionPage({
   onControllerClick,
   onLogoClick
 }) {
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
   const pageContainerRef = useRef(null)
 
   // Ensure scroll is enabled for ConclusionPage
@@ -561,7 +559,6 @@ export default function ConclusionPage({
           onNavClick={onNavClick}
           onControllerClick={onControllerClick}
           onLogoClick={onLogoClick}
-          onFeedbackClick={() => setIsFeedbackOpen(true)}
         />
       </div>
 
@@ -1529,9 +1526,6 @@ export default function ConclusionPage({
           }}
         />
       </footer>
-
-      {/* Feedback Modal */}
-      {isFeedbackOpen && <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />}
     </div>
   )
 }

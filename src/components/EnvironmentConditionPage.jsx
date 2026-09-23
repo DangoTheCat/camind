@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { BookOpen } from 'lucide-react'
 import FigmaOpenHeader from './FigmaOpenHeader'
-import FeedbackModal from './FeedbackModal'
 import ReferencesModal from './ReferencesModal'
 import FigmaCtaButton from './FigmaCtaButton'
 
@@ -47,7 +46,6 @@ export default function EnvironmentConditionPage({
   onControllerClick,
   onLogoClick
 }) {
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
   const [isReferencesOpen, setIsReferencesOpen] = useState(false)
   const scrollContainerRef = useRef(null)
 
@@ -131,7 +129,6 @@ export default function EnvironmentConditionPage({
           isControllerActive={isControllerActive}
           onNavClick={onNavClick}
           onControllerClick={onControllerClick}
-          onFeedbackClick={() => setIsFeedbackOpen(true)}
           onLogoClick={onLogoClick}
         />
       </div>
@@ -1055,11 +1052,6 @@ export default function EnvironmentConditionPage({
       <ReferencesModal
         isOpen={isReferencesOpen}
         onClose={() => setIsReferencesOpen(false)}
-      />
-
-      <FeedbackModal
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
       />
     </div>
   )

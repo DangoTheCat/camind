@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
+export const FEEDBACK_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdKnfvtqPkgH8OJxFuHoVQWWwklF2cTxqjmUhn1cTIFAHAm0Q/viewform'
+
 export default function FigmaOpenHeader({
   onFeedbackClick,
   onNavClick,
@@ -9,6 +11,13 @@ export default function FigmaOpenHeader({
   activeTab: controlledActiveTab,
   isControllerActive: controlledControllerActive
 }) {
+  const handleFeedbackClick = (e) => {
+    if (onFeedbackClick) {
+      onFeedbackClick(e)
+    } else {
+      window.open(FEEDBACK_FORM_URL, '_blank', 'noopener,noreferrer')
+    }
+  }
   // Trạng thái tab được chọn: mặc định là null (tất cả chữ đều MÀU TRẮNG).
   // Khi người dùng click vào tab nào thì tab đó mới chuyển sang MÀU ĐEN (kèm gạch chân active).
   const [uncontrolledTab, setUncontrolledTab] = useState(null)
@@ -231,7 +240,7 @@ export default function FigmaOpenHeader({
             }}
             onMouseDown={() => setIsFeedbackPressed(true)}
             onMouseUp={() => setIsFeedbackPressed(false)}
-            onClick={onFeedbackClick}
+            onClick={handleFeedbackClick}
             style={{
               background: 'transparent',
               border: 'none',

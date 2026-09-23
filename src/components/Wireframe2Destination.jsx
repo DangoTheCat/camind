@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import FigmaOpenHeader from './FigmaOpenHeader'
-import FeedbackModal from './FeedbackModal'
 
 /**
  * Wireframe2Destination
@@ -22,7 +21,6 @@ export default function Wireframe2Destination({
 }) {
   const [currentStage, setCurrentStage] = useState(0)
   const [scale, setScale] = useState(1)
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
   const isScrollingRef = useRef(false)
 
   // Scale 1440x900 stage to fit viewport responsively
@@ -49,7 +47,6 @@ export default function Wireframe2Destination({
   // Wheel scroll listener: advance or rewind stages smoothly
   useEffect(() => {
     const handleWheel = (e) => {
-      if (isFeedbackOpen) return
       e.preventDefault()
       if (isScrollingRef.current) return
 
@@ -85,12 +82,11 @@ export default function Wireframe2Destination({
 
     window.addEventListener('wheel', handleWheel, { passive: false })
     return () => window.removeEventListener('wheel', handleWheel)
-  }, [isFeedbackOpen])
+  }, [])
 
   // Keyboard navigation listener (Arrow keys, Space, PageUp/PageDown)
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (isFeedbackOpen) return
       if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
         e.preventDefault()
         setCurrentStage((prev) => Math.min(4, prev + 1))
@@ -101,7 +97,7 @@ export default function Wireframe2Destination({
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isFeedbackOpen])
+  }, [])
 
   // Touch swipe listener for mobile / trackpads
   useEffect(() => {
@@ -110,10 +106,10 @@ export default function Wireframe2Destination({
       startY = e.touches[0].clientY
     }
     const handleTouchMove = (e) => {
-      if (!isFeedbackOpen) e.preventDefault()
+      e.preventDefault()
     }
     const handleTouchEnd = (e) => {
-      if (isScrollingRef.current || isFeedbackOpen) return
+      if (isScrollingRef.current) return
       const endY = e.changedTouches[0].clientY
       const deltaY = startY - endY
       if (Math.abs(deltaY) > 35) {
@@ -151,7 +147,7 @@ export default function Wireframe2Destination({
       window.removeEventListener('touchmove', handleTouchMove)
       window.removeEventListener('touchend', handleTouchEnd)
     }
-  }, [isFeedbackOpen])
+  }, [])
 
   // Spring transition configs
   const springTransition = { duration: 0.75, ease: [0.16, 1, 0.3, 1] }
@@ -263,12 +259,6 @@ export default function Wireframe2Destination({
         onNavClick={onNavClick}
         onControllerClick={onControllerClick}
         onLogoClick={onLogoClick || onReplayOpen}
-        onFeedbackClick={() => setIsFeedbackOpen(true)}
-      />
-
-      <FeedbackModal
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
       />
 
       {/* 1440x900 Centered Responsive Stage */}

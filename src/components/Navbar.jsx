@@ -100,7 +100,11 @@ export default function Navbar({
 
   const handleOpenFeedback = () => {
     if (onOpenFeedback) onOpenFeedback()
-    if (onFeedbackClick) onFeedbackClick()
+    if (onFeedbackClick) {
+      onFeedbackClick()
+    } else {
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLSdKnfvtqPkgH8OJxFuHoVQWWwklF2cTxqjmUhn1cTIFAHAm0Q/viewform', '_blank', 'noopener,noreferrer')
+    }
     setIsMobileMenuOpen(false)
   }
 

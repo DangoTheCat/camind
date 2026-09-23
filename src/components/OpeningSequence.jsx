@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import CamindGifCanvas from './CamindGifCanvas'
 import FigmaOpenHeader from './FigmaOpenHeader'
-import FeedbackModal from './FeedbackModal'
 import FigmaLetsGoButton from './FigmaLetsGoButton'
 
 export default function OpeningSequence({
@@ -26,7 +25,6 @@ export default function OpeningSequence({
   const [isNavigating, setIsNavigating] = useState(false)
   const [scale, setScale] = useState(1)
   const [replayKey, setReplayKey] = useState(0)
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
 
   // Scale 1440x900 stage to fit viewport smoothly
   useEffect(() => {
@@ -93,7 +91,6 @@ export default function OpeningSequence({
         isControllerActive={isControllerActive}
         onNavClick={onNavClick}
         onControllerClick={onControllerClick}
-        onFeedbackClick={() => setIsFeedbackOpen(true)}
         onLogoClick={() => {
           if (onLogoClick) onLogoClick()
           setPhase(1)
@@ -274,13 +271,6 @@ export default function OpeningSequence({
           )}
         </AnimatePresence>
       </div>
-
-
-      {/* Feedback Survey Modal from Figma Component 35:454 */}
-      <FeedbackModal
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
-      />
     </motion.div>
   )
 }

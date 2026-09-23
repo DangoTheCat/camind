@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import FigmaOpenHeader from './FigmaOpenHeader'
-import FeedbackModal from './FeedbackModal'
 import ReferencesModal from './ReferencesModal'
 import FigmaCtaButton from './FigmaCtaButton'
 
@@ -126,7 +125,6 @@ export default function BasicPhilosophyPage({
   const [activeLienHeSlide, setActiveLienHeSlide] = useState(0)
 
   // Modals
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
   const [isReferencesOpen, setIsReferencesOpen] = useState(false)
 
   // Hover states for Component 14
@@ -235,7 +233,6 @@ export default function BasicPhilosophyPage({
           isControllerActive={isControllerActive}
           onNavClick={onNavClick}
           onControllerClick={onControllerClick}
-          onFeedbackClick={() => setIsFeedbackOpen(true)}
           onLogoClick={onLogoClick}
         />
       </div>
@@ -2611,11 +2608,6 @@ export default function BasicPhilosophyPage({
       <ReferencesModal
         isOpen={isReferencesOpen}
         onClose={() => setIsReferencesOpen(false)}
-      />
-
-      <FeedbackModal
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
       />
     </div>
   )

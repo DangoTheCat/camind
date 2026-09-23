@@ -19,7 +19,6 @@ import QuestionModal from './QuestionModal'
 import VictoryModal from './VictoryModal'
 import DefeatModal from './DefeatModal'
 import FigmaOpenHeader from '../FigmaOpenHeader'
-import FeedbackModal from '../FeedbackModal'
 import { BOARD_CELLS, QUESTIONS } from './gameData'
 
 // Helper for facing direction based on cell ID
@@ -66,7 +65,6 @@ export default function CamindGame({
   const [failedQuestionData, setFailedQuestionData] = useState(null)
   const [failedUserAnswer, setFailedUserAnswer] = useState(null)
   const [isRulesModalOpen, setIsRulesModalOpen] = useState(false)
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
   const [toastMessage, setToastMessage] = useState(null)
 
   // Sound effects & lifecycle refs
@@ -461,7 +459,6 @@ export default function CamindGame({
           isControllerActive={true}
           onNavClick={onNavClick}
           onControllerClick={onControllerClick}
-          onFeedbackClick={() => setIsFeedbackOpen(true)}
           onLogoClick={onLogoClick}
         />
       </div>
@@ -853,12 +850,6 @@ export default function CamindGame({
           </div>
         )}
       </AnimatePresence>
-
-      {/* Feedback Modal */}
-      <FeedbackModal
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
-      />
     </div>
   )
 }
