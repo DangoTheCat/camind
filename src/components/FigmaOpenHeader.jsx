@@ -58,30 +58,47 @@ export default function FigmaOpenHeader({
 
   useEffect(() => {
     let isMounted = true
+    let isFetching = false
 
-    const fetchCount = () => {
-      // Thêm Date.now() để chống bộ nhớ đệm (cache) của trình duyệt
-      fetch(`https://script.google.com/macros/s/AKfycbxsxjf6bKqwE0Hc-6H7C4UaEYotK50eBbz54AbX2oNcXduU15n8osf3JF6fl_eRTgYFgA/exec?t=${Date.now()}`)
-        .then(res => res.json())
-        .then(data => {
-          if (isMounted && typeof data.count === 'number') {
-            cachedSurveyCount = data.count
-            try {
-              localStorage.setItem('survey_count_cache', String(data.count))
-            } catch (e) {}
-            setSurveyCount(data.count)
-          }
-        })
-        .catch(err => console.error('Error fetching survey count:', err))
+    const fetchCount = async () => {
+      // Nếu đang có một lượt gọi chưa xong thì không gọi chồng chéo
+      if (isFetching) return
+      isFetching = true
+
+      try {
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 8000)
+
+        const res = await fetch(
+          `https://script.google.com/macros/s/AKfycbxsxjf6bKqwE0Hc-6H7C4UaEYotK50eBbz54AbX2oNcXduU15n8osf3JF6fl_eRTgYFgA/exec?t=${Date.now()}`,
+          { signal: controller.signal }
+        )
+        clearTimeout(timeoutId)
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+        const data = await res.json()
+        if (isMounted && typeof data.count === 'number') {
+          cachedSurveyCount = data.count
+          try {
+            localStorage.setItem('survey_count_cache', String(data.count))
+          } catch (e) {}
+          setSurveyCount(data.count)
+        }
+      } catch (err) {
+        // Nếu lỗi mạng hoặc Google đang xử lý chậm thì giữ nguyên số cũ, không crash
+        console.warn('Survey count fetch notice:', err.message)
+      } finally {
+        isFetching = false
+      }
     }
 
-    // Gọi ngay lần đầu tiên khi load web
+    // Gọi ngay khi mở trang
     fetchCount()
 
-    // Lặp lại việc gọi API mỗi 3 giây để cập nhật realtime nhanh hơn
-    const intervalId = setInterval(fetchCount, 3000)
+    // Kiểm tra định kỳ mỗi 10 giây (Google Apps Script cần khoảng thời gian an toàn để tránh bị rate limit/khóa tạm thời)
+    const intervalId = setInterval(fetchCount, 10000)
 
-    // Dọn dẹp interval khi người dùng rời khỏi component
     return () => {
       isMounted = false
       clearInterval(intervalId)
