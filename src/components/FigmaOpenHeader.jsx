@@ -341,18 +341,18 @@ export default function FigmaOpenHeader({
               />
             </motion.button>
 
-            {/* Ô hiển thị số người đã điền (cao bằng nút Feedback) */}
+            {/* Ô hiển thị số người đã điền khảo sát / Feedback count gọn gàng */}
             <div
               style={{
                 background: 'linear-gradient(180deg, #2a2a2c 0%, #1c1c1e 100%)',
                 color: '#ffea00',
                 height: 36,
-                padding: '0 18px',
+                padding: '0 12px',
                 borderRadius: 18,
                 fontFamily: '"Inter", "Segoe UI", sans-serif',
                 fontSize: 11,
                 fontWeight: 700,
-                letterSpacing: '0.8px',
+                letterSpacing: '0.6px',
                 border: '1px solid rgba(255, 234, 0, 0.25)',
                 boxShadow: '0 4px 10px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.08)',
                 display: 'flex',
@@ -362,7 +362,7 @@ export default function FigmaOpenHeader({
                 whiteSpace: 'nowrap'
               }}
             >
-              SỐ LƯỢNG NGƯỜI ĐIỀN KHẢO SÁT: {surveyCount}
+              FEEDBACK COUNT: {surveyCount}
             </div>
           </div>
 
