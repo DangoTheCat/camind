@@ -3,6 +3,17 @@ import { motion } from 'framer-motion'
 
 export const FEEDBACK_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdKnfvtqPkgH8OJxFuHoVQWWwklF2cTxqjmUhn1cTIFAHAm0Q/viewform'
 
+// Cache số lượng người khảo sát ở cấp độ module (RAM) và localStorage để không bao giờ bị giật về 0 khi chuyển giữa các page
+let cachedSurveyCount = null
+try {
+  const saved = localStorage.getItem('survey_count_cache')
+  if (saved !== null) {
+    cachedSurveyCount = parseInt(saved, 10)
+  }
+} catch (e) {
+  // Bỏ qua nếu môi trường chặn localStorage
+}
+
 export default function FigmaOpenHeader({
   onFeedbackClick,
   onNavClick,
@@ -38,15 +49,26 @@ export default function FigmaOpenHeader({
   const [isFeedbackPressed, setIsFeedbackPressed] = useState(false)
 
   // Trạng thái lưu số lượng người đã điền khảo sát từ Google Sheets
-  const [surveyCount, setSurveyCount] = useState(0)
+  const [surveyCount, setSurveyCount] = useState(() => {
+    if (cachedSurveyCount !== null && !isNaN(cachedSurveyCount)) {
+      return cachedSurveyCount
+    }
+    return 0
+  })
 
   useEffect(() => {
+    let isMounted = true
+
     const fetchCount = () => {
       // Thêm Date.now() để chống bộ nhớ đệm (cache) của trình duyệt
       fetch(`https://script.google.com/macros/s/AKfycbxsxjf6bKqwE0Hc-6H7C4UaEYotK50eBbz54AbX2oNcXduU15n8osf3JF6fl_eRTgYFgA/exec?t=${Date.now()}`)
         .then(res => res.json())
         .then(data => {
-          if (typeof data.count === 'number') {
+          if (isMounted && typeof data.count === 'number') {
+            cachedSurveyCount = data.count
+            try {
+              localStorage.setItem('survey_count_cache', String(data.count))
+            } catch (e) {}
             setSurveyCount(data.count)
           }
         })
@@ -60,7 +82,10 @@ export default function FigmaOpenHeader({
     const intervalId = setInterval(fetchCount, 5000)
 
     // Dọn dẹp interval khi người dùng rời khỏi component
-    return () => clearInterval(intervalId)
+    return () => {
+      isMounted = false
+      clearInterval(intervalId)
+    }
   }, [])
 
   const handleTabClick = (tabKey) => {
