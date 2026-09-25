@@ -78,8 +78,8 @@ export default function FigmaOpenHeader({
     // Gọi ngay lần đầu tiên khi load web
     fetchCount()
 
-    // Lặp lại việc gọi API mỗi 5 giây để cập nhật realtime
-    const intervalId = setInterval(fetchCount, 5000)
+    // Lặp lại việc gọi API mỗi 3 giây để cập nhật realtime nhanh hơn
+    const intervalId = setInterval(fetchCount, 3000)
 
     // Dọn dẹp interval khi người dùng rời khỏi component
     return () => {
