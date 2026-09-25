@@ -79,10 +79,14 @@
   box-sizing: border-box;
 }
 
+button, input, select, textarea {
+  font-family: inherit;
+}
+
 html, body {
   width: 100%;
   min-height: 100%;
-  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #000000;
@@ -1229,8 +1233,20 @@ html, body {
    ========================================================================== */
 
 .camind-game-page {
-  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   user-select: none;
+}
+
+.defeat-modal-card,
+.victory-modal-card,
+.question-modal-card {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
+}
+
+.defeat-modal-card button,
+.victory-modal-card button,
+.question-modal-card button {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
 }
 
 .game-board-outer {
@@ -1265,6 +1281,12 @@ html, body {
   .defeat-modal-card {
     padding: 20px 18px !important;
     border-radius: 20px !important;
+  }
+
+  .defeat-modal-card button,
+  .victory-modal-card button,
+  .question-modal-card button {
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
   }
 
   .defeat-modal-card > div[style*="grid-template-columns"] {

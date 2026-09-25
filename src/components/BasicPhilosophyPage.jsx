@@ -75,6 +75,8 @@ const FIGMA_THINKERS_DATA = {
     ],
     contribution: 'Phát triển, hệ thống hóa chủ nghĩa duy vật biện chứng, góp phần làm rõ các quy luật vận động phát triển của tự nhiên, xã hội và tư duy con người.',
     image: '/assets/engels.png',
+    scale: 1.3,
+    shiftX: 80,
     archiveLabel: 'Hồ sơ hệ thống hóa phép biện chứng duy vật'
   },
   lenin: {
@@ -94,6 +96,8 @@ const FIGMA_THINKERS_DATA = {
     ],
     contribution: 'Phát triển chủ nghĩa Marx sang giai đoạn mới. Bảo vệ quan điểm biện chứng trong tác phẩm nổi tiếng Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán.',
     image: '/assets/lenin.png',
+    scale: 1.3,
+    shiftX: 80,
     archiveLabel: 'Hồ sơ bảo vệ & phát triển định nghĩa vật chất'
   }
 }
@@ -847,6 +851,8 @@ export default function BasicPhilosophyPage({
             {/* Smooth simultaneous crossfade watercolor portraits (Zero flashing, continuous blend) */}
             {Object.values(FIGMA_THINKERS_DATA).map((t) => {
               const isCurrent = activeThinker === t.id
+              const baseScale = t.scale || 1
+              const shiftX = t.shiftX || 0
               return (
                 <motion.img
                   key={t.id}
@@ -855,7 +861,8 @@ export default function BasicPhilosophyPage({
                   initial={false}
                   animate={{
                     opacity: isCurrent ? 1 : 0,
-                    scale: isCurrent ? 1 : 1.025
+                    scale: isCurrent ? baseScale : baseScale * 1.025,
+                    x: shiftX
                   }}
                   transition={{
                     duration: 0.55,
@@ -884,6 +891,20 @@ export default function BasicPhilosophyPage({
                 width: 140,
                 background: 'linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%)',
                 pointerEvents: 'none'
+              }}
+            />
+
+            {/* Soft right gradient fade into pure white to blend with outer margin */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                right: 0,
+                width: 80,
+                background: 'linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%)',
+                pointerEvents: 'none',
+                zIndex: 10
               }}
             />
 

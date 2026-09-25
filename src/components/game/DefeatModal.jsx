@@ -19,11 +19,11 @@ function CornerLeaves({ position = 'top-left' }) {
       aria-hidden="true"
       style={{
         position: 'absolute',
-        top: isTop ? 10 : 'auto',
-        bottom: !isTop ? 10 : 'auto',
-        left: isLeft ? 10 : 'auto',
-        right: !isLeft ? 10 : 'auto',
-        width: 44,
+        top: isTop ? 8 : 'auto',
+        bottom: !isTop ? 8 : 'auto',
+        left: isLeft ? 8 : 'auto',
+        right: !isLeft ? 8 : 'auto',
+        width: 36,
         height: 'auto',
         transform: `scale(${isLeft ? 1 : -1}, ${isTop ? -1 : 1})`,
         pointerEvents: 'none',
@@ -43,9 +43,9 @@ function CardAccentLeaf({ style = {} }) {
       aria-hidden="true"
       style={{
         position: 'absolute',
-        top: 8,
-        right: 10,
-        width: 18,
+        top: 7,
+        right: 9,
+        width: 16,
         height: 'auto',
         pointerEvents: 'none',
         userSelect: 'none',
@@ -55,7 +55,7 @@ function CardAccentLeaf({ style = {} }) {
   )
 }
 
-// 3. Green Leaf flanking Title "Bạn đã thua!"
+// 3. Green Leaf flanking Title "Not passed"
 function TitleLeaf({ flipped = false }) {
   return (
     <img
@@ -65,7 +65,7 @@ function TitleLeaf({ flipped = false }) {
       style={{
         display: 'inline-block',
         verticalAlign: 'middle',
-        width: 26,
+        width: 22,
         height: 'auto',
         transform: flipped ? 'scaleX(-1) rotate(15deg)' : 'rotate(-15deg)',
         flexShrink: 0,
@@ -80,8 +80,8 @@ function CoralArcs({ side = 'left' }) {
   const isRight = side === 'right'
   return (
     <svg
-      width="22"
-      height="18"
+      width="18"
+      height="15"
       viewBox="0 0 22 18"
       fill="none"
       style={{
@@ -155,7 +155,7 @@ export default function DefeatModal({
   const cellTitle = failedQuestion?.title || cellData.title || questionData.title || cellData.name || 'Phòng trọ ồn ào'
 
   const handleSaveResult = () => {
-    const text = `💔 Camind MLN111 - Kết Quả Mini-Game\n- Trạng thái: THUA GAME (Bạn đã thua!)\n- Vị trí dừng: Ô ${currentPosition < 10 ? '0' + currentPosition : currentPosition}/32 (${cellName})\n- Số câu đúng: ${correctCount} câu\n"Cùng rút kinh nghiệm và chơi lại nhé!"`
+    const text = `💔 Camind MLN111 - Kết Quả Mini-Game\n- Trạng thái: Not passed\n- Vị trí dừng: Ô ${currentPosition < 10 ? '0' + currentPosition : currentPosition}/32 (${cellName})\n- Số câu đúng: ${correctCount} câu\n"Cùng rút kinh nghiệm và chơi lại nhé!"`
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(() => {
         alert('Đã sao chép kết quả vào bộ nhớ tạm (Clipboard)!')
@@ -191,17 +191,17 @@ export default function DefeatModal({
           style={{
             position: 'relative',
             width: '100%',
-            maxWidth: 820,
-            maxHeight: '94vh',
+            maxWidth: 720,
+            maxHeight: '88vh',
             overflowY: 'auto',
             backgroundColor: '#FFFFFF',
-            borderRadius: 32,
-            border: '3.5px solid #1E5E3A',
+            borderRadius: 26,
+            border: '3px solid #1E5E3A',
             boxShadow:
-              '0 24px 60px rgba(15, 60, 30, 0.28), 0 8px 24px rgba(0, 0, 0, 0.12)',
-            padding: '24px 32px 18px 32px',
+              '0 20px 50px rgba(15, 60, 30, 0.25), 0 6px 20px rgba(0, 0, 0, 0.1)',
+            padding: '18px 24px 14px 24px',
             boxSizing: 'border-box',
-            fontFamily: "'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
+            fontFamily: "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif"
           }}
         >
           {/* Corner Leaves matching Figma defeat.jpg nestled cleanly inside */}
@@ -213,19 +213,19 @@ export default function DefeatModal({
           {/* Side Floating Leaves from Figma */}
           <FloatingLeaf style={{ top: '42%', left: 8, transform: 'rotate(-20deg)' }} />
           <FloatingLeaf style={{ top: '46%', right: 8, transform: 'rotate(45deg)' }} />
-          <FloatingLeaf style={{ bottom: 24, right: 28, transform: 'rotate(-30deg)' }} />
+          <FloatingLeaf style={{ bottom: 20, right: 24, transform: 'rotate(-30deg)' }} />
 
           {/* ================================================================
-              TOP HEADER: THUA GAME / Bạn đã thua! / Subtitle
+              TOP HEADER: THUA GAME / Not passed / Subtitle
               ================================================================ */}
-          <div style={{ textAlign: 'center', marginBottom: 16 }}>
+          <div style={{ textAlign: 'center', marginBottom: 10 }}>
             {/* THUA GAME Coral Badge with Arcs */}
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: 8,
-                marginBottom: 6
+                gap: 6,
+                marginBottom: 4
               }}
             >
               <CoralArcs side="left" />
@@ -233,12 +233,12 @@ export default function DefeatModal({
                 style={{
                   background: '#FCA5A5',
                   color: '#7F1D1D',
-                  padding: '4px 24px',
+                  padding: '3px 18px',
                   borderRadius: 9999,
                   fontWeight: 900,
-                  fontSize: '0.88rem',
+                  fontSize: '0.8rem',
                   letterSpacing: '0.08em',
-                  boxShadow: '0 2px 6px rgba(248, 113, 113, 0.2)'
+                  boxShadow: '0 2px 5px rgba(248, 113, 113, 0.2)'
                 }}
               >
                 THUA GAME
@@ -246,29 +246,29 @@ export default function DefeatModal({
               <CoralArcs side="right" />
             </div>
 
-            {/* Main Title: 🍃 Bạn đã thua! 🍃 */}
+            {/* Main Title: 🍃 Not passed 🍃 */}
             <h1
               style={{
-                margin: '2px 0 4px 0',
-                fontSize: '2.1rem',
+                margin: '1px 0 3px 0',
+                fontSize: '1.75rem',
                 fontWeight: 900,
                 color: '#13361E',
                 letterSpacing: '-0.01em',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: 10
+                gap: 8
               }}
             >
               <TitleLeaf />
-              <span>Bạn đã thua!</span>
+              <span>Not passed</span>
               <TitleLeaf flipped />
             </h1>
 
             {/* Subtitle */}
             <div
               style={{
-                fontSize: '0.94rem',
+                fontSize: '0.86rem',
                 color: '#334155',
                 fontWeight: 600,
                 marginTop: 2
@@ -287,10 +287,10 @@ export default function DefeatModal({
             className="defeat-modal-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: 20,
+              gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+              gap: 16,
               alignItems: 'start',
-              marginBottom: 16
+              marginBottom: 12
             }}
           >
             {/* LEFT COLUMN: Standing Defeat Illustration & Stats */}
@@ -299,7 +299,7 @@ export default function DefeatModal({
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: 10,
+                gap: 8,
                 width: '100%'
               }}
             >
@@ -308,11 +308,11 @@ export default function DefeatModal({
                 style={{
                   position: 'relative',
                   width: '100%',
-                  maxWidth: 250,
+                  maxWidth: 200,
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  minHeight: 215
+                  minHeight: 175
                 }}
               >
                 <img
@@ -337,7 +337,7 @@ export default function DefeatModal({
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr 1fr',
-                  gap: 10,
+                  gap: 8,
                   width: '100%'
                 }}
               >
@@ -346,18 +346,18 @@ export default function DefeatModal({
                   style={{
                     background: '#EDF7ED',
                     border: '1.5px solid #B8E2BE',
-                    borderRadius: 14,
-                    padding: '8px 10px',
+                    borderRadius: 12,
+                    padding: '6px 8px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 8,
+                    gap: 6,
                     boxShadow: '0 2px 4px rgba(0,0,0,0.03)'
                   }}
                 >
                   <div
                     style={{
-                      width: 32,
-                      height: 32,
+                      width: 28,
+                      height: 28,
                       borderRadius: '50%',
                       background: '#C8E6C9',
                       display: 'flex',
@@ -366,11 +366,11 @@ export default function DefeatModal({
                       flexShrink: 0
                     }}
                   >
-                    <MapPin size={18} color="#1B5E20" />
+                    <MapPin size={16} color="#1B5E20" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#2E5A36', fontWeight: 600 }}>Vị trí dừng</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#1B5E20', lineHeight: 1.1 }}>
+                    <div style={{ fontSize: '0.68rem', color: '#2E5A36', fontWeight: 600 }}>Vị trí dừng</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#1B5E20', lineHeight: 1.1 }}>
                       {cellNumber < 10 ? `0${cellNumber}` : cellNumber}/32
                     </div>
                   </div>
@@ -381,18 +381,18 @@ export default function DefeatModal({
                   style={{
                     background: '#FFFDF0',
                     border: '1.5px solid #FDE68A',
-                    borderRadius: 14,
-                    padding: '8px 10px',
+                    borderRadius: 12,
+                    padding: '6px 8px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 8,
+                    gap: 6,
                     boxShadow: '0 2px 4px rgba(0,0,0,0.03)'
                   }}
                 >
                   <div
                     style={{
-                      width: 32,
-                      height: 32,
+                      width: 28,
+                      height: 28,
                       borderRadius: '50%',
                       background: '#FEF08A',
                       display: 'flex',
@@ -401,11 +401,11 @@ export default function DefeatModal({
                       flexShrink: 0
                     }}
                   >
-                    <Lightbulb size={18} color="#854D0E" />
+                    <Lightbulb size={16} color="#854D0E" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#854D0E', fontWeight: 600 }}>Trả lời đúng</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#713F12', lineHeight: 1.1 }}>
+                    <div style={{ fontSize: '0.68rem', color: '#854D0E', fontWeight: 600 }}>Trả lời đúng</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#713F12', lineHeight: 1.1 }}>
                       {correctCount} câu
                     </div>
                   </div>
@@ -414,7 +414,7 @@ export default function DefeatModal({
             </div>
 
             {/* RIGHT COLUMN: Review Cards */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, width: '100%' }}>
               {/* Cell Badge: "Ô 02 • Phòng trọ ồn ào" matching Figma */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
                 <span
@@ -422,16 +422,16 @@ export default function DefeatModal({
                     background: '#FEF08A',
                     border: '1px solid #FCD34D',
                     color: '#1E293B',
-                    padding: '3px 14px',
+                    padding: '2px 12px',
                     borderRadius: 9999,
                     fontWeight: 900,
-                    fontSize: '0.92rem'
+                    fontSize: '0.84rem'
                   }}
                 >
                   Ô {cellNumber < 10 ? `0${cellNumber}` : cellNumber}
                 </span>
                 <span style={{ color: '#64748B', fontWeight: 800 }}>•</span>
-                <span style={{ color: '#1E293B', fontWeight: 800, fontSize: '0.96rem' }}>
+                <span style={{ color: '#1E293B', fontWeight: 800, fontSize: '0.9rem' }}>
                   {cellTitle}
                 </span>
               </div>
@@ -442,8 +442,8 @@ export default function DefeatModal({
                   position: 'relative',
                   background: '#FFF0F0',
                   border: '1.5px solid #FCA5A5',
-                  borderRadius: 16,
-                  padding: '11px 16px',
+                  borderRadius: 13,
+                  padding: '8px 12px',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
                 }}
               >
@@ -452,24 +452,24 @@ export default function DefeatModal({
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 10,
+                    gap: 8,
                     color: '#DC2626',
                     fontWeight: 800,
-                    fontSize: '0.93rem',
-                    marginBottom: 4
+                    fontSize: '0.86rem',
+                    marginBottom: 3
                   }}
                 >
                   <div
                     style={{
-                      width: 24,
-                      height: 24,
+                      width: 20,
+                      height: 20,
                       borderRadius: '50%',
                       background: '#DC2626',
                       color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '0.8rem',
+                      fontSize: '0.75rem',
                       fontWeight: 900,
                       flexShrink: 0
                     }}
@@ -480,10 +480,10 @@ export default function DefeatModal({
                 </div>
                 <div
                   style={{
-                    fontSize: '0.88rem',
+                    fontSize: '0.82rem',
                     color: '#374151',
-                    lineHeight: 1.42,
-                    paddingLeft: 34
+                    lineHeight: 1.38,
+                    paddingLeft: 28
                   }}
                 >
                   {userOptionObj?.text || 'Giữ nguyên chỗ học, chỉ tăng thời gian ngồi vào bàn.'}
@@ -496,34 +496,34 @@ export default function DefeatModal({
                   position: 'relative',
                   background: '#F0FDF4',
                   border: '1.5px solid #86EFAC',
-                  borderRadius: 16,
-                  padding: '11px 16px',
+                  borderRadius: 13,
+                  padding: '8px 12px',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
                 }}
               >
-                <CardAccentLeaf style={{ bottom: 8, top: 'auto', right: 10, transform: 'rotate(90deg)' }} />
+                <CardAccentLeaf style={{ bottom: 6, top: 'auto', right: 8, transform: 'rotate(90deg)' }} />
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 10,
+                    gap: 8,
                     color: '#16A34A',
                     fontWeight: 800,
-                    fontSize: '0.93rem',
-                    marginBottom: 4
+                    fontSize: '0.86rem',
+                    marginBottom: 3
                   }}
                 >
                   <div
                     style={{
-                      width: 24,
-                      height: 24,
+                      width: 20,
+                      height: 20,
                       borderRadius: '50%',
                       background: '#16A34A',
                       color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '0.8rem',
+                      fontSize: '0.75rem',
                       fontWeight: 900,
                       flexShrink: 0
                     }}
@@ -534,10 +534,10 @@ export default function DefeatModal({
                 </div>
                 <div
                   style={{
-                    fontSize: '0.88rem',
+                    fontSize: '0.82rem',
                     color: '#374151',
-                    lineHeight: 1.42,
-                    paddingLeft: 34
+                    lineHeight: 1.38,
+                    paddingLeft: 28
                   }}
                 >
                   {correctOptionObj?.text || 'Chuyển giờ tự học sang thư viện và sắp xếp lịch phù hợp.'}
@@ -550,8 +550,8 @@ export default function DefeatModal({
                   position: 'relative',
                   background: '#FFFDF0',
                   border: '1.5px solid #FDE047',
-                  borderRadius: 16,
-                  padding: '11px 16px',
+                  borderRadius: 13,
+                  padding: '8px 12px',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
                 }}
               >
@@ -560,22 +560,22 @@ export default function DefeatModal({
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 10,
+                    gap: 8,
                     color: '#854D0E',
                     fontWeight: 800,
-                    fontSize: '0.93rem',
-                    marginBottom: 4
+                    fontSize: '0.86rem',
+                    marginBottom: 3
                   }}
                 >
-                  <Lightbulb size={20} color="#CA8A04" style={{ flexShrink: 0 }} />
+                  <Lightbulb size={17} color="#CA8A04" style={{ flexShrink: 0 }} />
                   <span>{questionData.topic || 'Vật chất và ý thức'}</span>
                 </div>
                 <div
                   style={{
-                    fontSize: '0.88rem',
+                    fontSize: '0.82rem',
                     color: '#374151',
-                    lineHeight: 1.42,
-                    paddingLeft: 30
+                    lineHeight: 1.38,
+                    paddingLeft: 25
                   }}
                 >
                   {questionData.explanation ||
@@ -593,9 +593,9 @@ export default function DefeatModal({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: 12,
+              gap: 10,
               flexWrap: 'wrap',
-              marginBottom: 12
+              marginBottom: 10
             }}
           >
             {/* Chơi lại (Forest Green Button) */}
@@ -609,18 +609,19 @@ export default function DefeatModal({
                 color: '#FFFFFF',
                 border: 'none',
                 borderRadius: 9999,
-                padding: '9px 26px',
+                padding: '7px 20px',
                 fontWeight: 800,
-                fontSize: '0.94rem',
+                fontSize: '0.88rem',
+                fontFamily: "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 8,
-                boxShadow: '0 4px 14px rgba(22, 101, 52, 0.35)',
+                gap: 7,
+                boxShadow: '0 3px 12px rgba(22, 101, 52, 0.3)',
                 transition: 'all 0.15s ease'
               }}
             >
-              <RotateCcw size={18} strokeWidth={2.5} />
+              <RotateCcw size={16} strokeWidth={2.5} />
               <span>Chơi lại</span>
             </motion.button>
 
@@ -635,18 +636,19 @@ export default function DefeatModal({
                 border: '2px solid #166534',
                 color: '#166534',
                 borderRadius: 9999,
-                padding: '7px 24px',
+                padding: '6px 18px',
                 fontWeight: 800,
-                fontSize: '0.94rem',
+                fontSize: '0.88rem',
+                fontFamily: "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 8,
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+                gap: 7,
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
                 transition: 'all 0.15s ease'
               }}
             >
-              <Home size={18} strokeWidth={2.5} />
+              <Home size={16} strokeWidth={2.5} />
               <span>Về Camind</span>
             </motion.button>
 
@@ -661,18 +663,19 @@ export default function DefeatModal({
                 border: '2px solid #D97706',
                 color: '#1F2937',
                 borderRadius: 9999,
-                padding: '7px 24px',
+                padding: '6px 18px',
                 fontWeight: 800,
-                fontSize: '0.94rem',
+                fontSize: '0.88rem',
+                fontFamily: "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif",
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 8,
-                boxShadow: '0 4px 14px rgba(217, 119, 6, 0.28)',
+                gap: 7,
+                boxShadow: '0 3px 12px rgba(217, 119, 6, 0.25)',
                 transition: 'all 0.15s ease'
               }}
             >
-              <Download size={18} strokeWidth={2.5} />
+              <Download size={16} strokeWidth={2.5} />
               <span>Lưu kết quả</span>
             </motion.button>
           </div>
@@ -684,8 +687,8 @@ export default function DefeatModal({
                 background: '#EDF7ED',
                 border: '1.5px solid #A7D7B0',
                 borderRadius: 9999,
-                padding: '3px 20px',
-                fontSize: '0.78rem',
+                padding: '2px 16px',
+                fontSize: '0.72rem',
                 color: '#2E5A36',
                 fontWeight: 600,
                 display: 'inline-flex',
