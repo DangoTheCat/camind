@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export const FEEDBACK_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdKnfvtqPkgH8OJxFuHoVQWWwklF2cTxqjmUhn1cTIFAHAm0Q/viewform'
@@ -36,6 +36,20 @@ export default function FigmaOpenHeader({
   // - Pressed/Active (35:453): Nền gradient cam (#E27500 -> #FF6A00), viền cam, chữ trắng
   const [isFeedbackHovered, setIsFeedbackHovered] = useState(false)
   const [isFeedbackPressed, setIsFeedbackPressed] = useState(false)
+
+  // Trạng thái lưu số lượng người đã điền khảo sát từ Google Sheets
+  const [surveyCount, setSurveyCount] = useState(0)
+
+  useEffect(() => {
+    fetch('https://script.google.com/macros/s/AKfycbxsxjf6bKqwE0Hc-6H7C4UaEYotK50eBbz54AbX2oNcXduU15n8osf3JF6fl_eRTgYFgA/exec')
+      .then(res => res.json())
+      .then(data => {
+        if (typeof data.count === 'number') {
+          setSurveyCount(data.count)
+        }
+      })
+      .catch(err => console.error('Error fetching survey count:', err))
+  }, [])
 
   const handleTabClick = (tabKey) => {
     // Click vào tab: chuyển thành màu đen, nếu bấm lại đúng tab đó thì toggle về null (trắng hết)
@@ -230,47 +244,73 @@ export default function FigmaOpenHeader({
               - Hover (35:452): Khi lia vào -> Nền gradient xanh ngọc (#00E2C4 -> #C5DB00), chữ đen
               - Active / Pressed (35:453): Khi ấn vào -> Nền gradient cam (#E27500 -> #FF6A00), viền phát sáng cam, chữ trắng
           */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            onMouseEnter={() => setIsFeedbackHovered(true)}
-            onMouseLeave={() => {
-              setIsFeedbackHovered(false)
-              setIsFeedbackPressed(false)
-            }}
-            onMouseDown={() => setIsFeedbackPressed(true)}
-            onMouseUp={() => setIsFeedbackPressed(false)}
-            onClick={handleFeedbackClick}
-            style={{
-              background: 'transparent',
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative',
-              outline: 'none'
-            }}
-            title="Gửi Feedback"
-          >
-            <img
-              src={
-                isFeedbackPressed
-                  ? '/assets/feedback_active.svg'
-                  : isFeedbackHovered
-                  ? '/assets/feedback_hover.svg'
-                  : '/assets/feedback_default.svg'
-              }
-              alt="Feedback"
-              style={{
-                width: isFeedbackPressed ? 138 : 130,
-                height: isFeedbackPressed ? 43 : 36,
-                display: 'block',
-                transition: 'all 0.15s ease'
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              onMouseEnter={() => setIsFeedbackHovered(true)}
+              onMouseLeave={() => {
+                setIsFeedbackHovered(false)
+                setIsFeedbackPressed(false)
               }}
-            />
-          </motion.button>
+              onMouseDown={() => setIsFeedbackPressed(true)}
+              onMouseUp={() => setIsFeedbackPressed(false)}
+              onClick={handleFeedbackClick}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                outline: 'none'
+              }}
+              title="Gửi Feedback"
+            >
+              <img
+                src={
+                  isFeedbackPressed
+                    ? '/assets/feedback_active.svg'
+                    : isFeedbackHovered
+                    ? '/assets/feedback_hover.svg'
+                    : '/assets/feedback_default.svg'
+                }
+                alt="Feedback"
+                style={{
+                  width: isFeedbackPressed ? 138 : 130,
+                  height: isFeedbackPressed ? 43 : 36,
+                  display: 'block',
+                  transition: 'all 0.15s ease'
+                }}
+              />
+            </motion.button>
+
+            {/* Ô hiển thị số người đã điền (cao bằng nút Feedback) */}
+            <div
+              style={{
+                background: 'linear-gradient(180deg, #2a2a2c 0%, #1c1c1e 100%)',
+                color: '#ffea00',
+                height: 36,
+                padding: '0 18px',
+                borderRadius: 18,
+                fontFamily: '"Inter", "Segoe UI", sans-serif',
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: '0.8px',
+                border: '1px solid rgba(255, 234, 0, 0.25)',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                userSelect: 'none',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              SỐ LƯỢNG NGƯỜI ĐIỀN KHẢO SÁT: {surveyCount}
+            </div>
+          </div>
 
           {/* Logo Controller chuẩn Figma Component Set 35:509:
               - Variant 1 (Default - 35:507): Nền trắng, icon đen (khi không hover)
