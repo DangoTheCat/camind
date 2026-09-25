@@ -341,13 +341,13 @@ export default function FigmaOpenHeader({
               />
             </motion.button>
 
-            {/* Ô hiển thị số người đã điền khảo sát / Feedback count gọn gàng kèm icon */}
+            {/* Ô hiển thị số người đã điền khảo sát / Feedback count gọn gàng */}
             <div
               style={{
                 background: 'linear-gradient(180deg, #2a2a2c 0%, #1c1c1e 100%)',
                 color: '#ffea00',
                 height: 36,
-                padding: '0 14px 0 10px',
+                padding: '0 16px',
                 borderRadius: 18,
                 fontFamily: '"Inter", "Segoe UI", sans-serif',
                 fontSize: 11,
@@ -357,23 +357,12 @@ export default function FigmaOpenHeader({
                 boxShadow: '0 4px 10px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.08)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: 8,
                 justifyContent: 'center',
                 userSelect: 'none',
                 whiteSpace: 'nowrap'
               }}
             >
-              <img
-                src="/assets/survey_icon_yellow.png"
-                alt=""
-                style={{
-                  width: 20,
-                  height: 20,
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-              />
-              <span>FEEDBACK COUNT: {surveyCount}</span>
+              FEEDBACK COUNT: {surveyCount}
             </div>
           </div>
 
