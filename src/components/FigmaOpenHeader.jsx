@@ -41,15 +41,26 @@ export default function FigmaOpenHeader({
   const [surveyCount, setSurveyCount] = useState(0)
 
   useEffect(() => {
-    // Thêm Date.now() để chống bộ nhớ đệm (cache) của trình duyệt, đảm bảo luôn lấy số mới nhất
-    fetch(`https://script.google.com/macros/s/AKfycbxsxjf6bKqwE0Hc-6H7C4UaEYotK50eBbz54AbX2oNcXduU15n8osf3JF6fl_eRTgYFgA/exec?t=${Date.now()}`)
-      .then(res => res.json())
-      .then(data => {
-        if (typeof data.count === 'number') {
-          setSurveyCount(data.count)
-        }
-      })
-      .catch(err => console.error('Error fetching survey count:', err))
+    const fetchCount = () => {
+      // Thêm Date.now() để chống bộ nhớ đệm (cache) của trình duyệt
+      fetch(`https://script.google.com/macros/s/AKfycbxsxjf6bKqwE0Hc-6H7C4UaEYotK50eBbz54AbX2oNcXduU15n8osf3JF6fl_eRTgYFgA/exec?t=${Date.now()}`)
+        .then(res => res.json())
+        .then(data => {
+          if (typeof data.count === 'number') {
+            setSurveyCount(data.count)
+          }
+        })
+        .catch(err => console.error('Error fetching survey count:', err))
+    }
+
+    // Gọi ngay lần đầu tiên khi load web
+    fetchCount()
+
+    // Lặp lại việc gọi API mỗi 5 giây để cập nhật realtime
+    const intervalId = setInterval(fetchCount, 5000)
+
+    // Dọn dẹp interval khi người dùng rời khỏi component
+    return () => clearInterval(intervalId)
   }, [])
 
   const handleTabClick = (tabKey) => {
